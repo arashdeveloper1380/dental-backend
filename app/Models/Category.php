@@ -11,7 +11,7 @@ class Category extends Model
 
     protected $table="categories";
 
-    protected $fillable = ['name','meta_desc','meta_keywords'];
+    protected $fillable = ['name','name_en','meta_desc','meta_keywords'];
 
     public function blog(){
         return $this->hasMany(Blog::class);

@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\CategoryRequest;
+use App\Models\Category;
 use Illuminate\Http\Request;
 
 class CategoryController extends Controller
@@ -12,7 +14,7 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        return view('admin.category.index');
+        return view('admin.category.index',['category' => Category::all()]);
     }
 
     /**
@@ -20,23 +22,21 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.category.create');
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(CategoryRequest $request)
     {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
-    {
-        //
+        Category::create([
+            'name'          => $request->get('name'),
+            'name_en'       => $request->get('name_en'),
+            'meta_desc'     => $request->get('meta_desc'),
+            'meta_keywords' => $request->get('meta_keywords'),
+        ]);
+        return redirect()->route('categories.index')->with('success','دسته با موفقیت ثبت شد');
     }
 
     /**
@@ -44,7 +44,7 @@ class CategoryController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        return view('admin.category.edit',['category'=>Category::query()->where(['id' => $id])->first()]);
     }
 
     /**
@@ -52,7 +52,14 @@ class CategoryController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $category = Category::find($id);
+        $category->update([
+            'name'          => $request->get('name'),
+            'name_en'       => $request->get('name_en'),
+            'meta_desc'     => $request->get('meta_desc'),
+            'meta_keywords' => $request->get('meta_keywords'),
+        ]);
+        return redirect()->route('categories.index')->with('success','دسته با موفقیت ویرایش شد');
     }
 
     /**
@@ -60,6 +67,7 @@ class CategoryController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        Category::find($id)->delete();
+        return redirect()->route('categories.index')->with('success','دسته با موفقیت حذف شد');
     }
 }
