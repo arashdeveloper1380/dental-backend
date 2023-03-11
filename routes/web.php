@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\admin\CategoryController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,8 +21,10 @@ Route::get('/', function () {
 
 Route::middleware(['is_admin'])->group(function () {
     Route::get('/dashboard', function () {
-        return view('dashboard');
+        return view('layouts.admin_master');
     })->middleware(['auth', 'verified'])->name('dashboard');
+
+    Route::resource('categories',CategoryController::class);
 
     Route::middleware('auth')->group(function () {
         Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
