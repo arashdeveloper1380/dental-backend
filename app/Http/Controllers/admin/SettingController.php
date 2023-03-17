@@ -5,6 +5,7 @@ namespace App\Http\Controllers\admin;
 use App\Http\Controllers\Controller;
 use App\Models\Setting;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\File;
 
 class SettingController extends Controller
 {
@@ -14,7 +15,12 @@ class SettingController extends Controller
     }
     public function UpdateAbout(Request $request, $key){
         $about = Setting::query()->where(['key' => $key])->first();
-        $image = $this->file_upload($request,'image','images');
+        if($request->hasFile('image')){
+            $image = $this->file_upload($request,'image','images');
+            File::delete('uploads/images'. '/' . $about->value[2]);
+        }else{
+            $image = $about->value[2];
+        }
         $value = $about->value = [
             $request->get('name'),
             $request->get('desc'),
