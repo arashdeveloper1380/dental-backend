@@ -32,7 +32,7 @@
     <nav class="sidebar-nav">
         <ul class="nav">
             <li class="nav-item">
-                <a class="nav-link" href="index.html"><i class="icon-speedometer"></i> داشبورد</a>
+                <a class="nav-link" href="{{ url('dashboard') }}"><i class="icon-speedometer"></i> داشبورد</a>
             </li>
             <li class="nav-item nav-dropdown">
                 <a class="nav-link nav-dropdown-toggle" href="#"><i class="icon-puzzle"></i>مدریت دسته بندی ها</a>
@@ -52,7 +52,7 @@
                         <a class="nav-link" href="{{ route('blog.index') }}"><i class="icon-puzzle"></i>لیست مقالات</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('blog.create') }}"><i class="icon-puzzle"></i>ایجاد مقاله</a>
+                        <a class="nav-link" href="{{ route('blog.index') }}"><i class="icon-puzzle"></i>ایجاد مقاله</a>
                     </li>
                 </ul>
             </li>
