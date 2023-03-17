@@ -52,7 +52,18 @@
                         <a class="nav-link" href="{{ route('blog.index') }}"><i class="icon-puzzle"></i>لیست مقالات</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('blog.index') }}"><i class="icon-puzzle"></i>ایجاد مقاله</a>
+                        <a class="nav-link" href="{{ route('blog.create') }}"><i class="icon-puzzle"></i>ایجاد مقاله</a>
+                    </li>
+                </ul>
+            </li>
+            <li class="nav-item nav-dropdown">
+                <a class="nav-link nav-dropdown-toggle" href="#"><i class="icon-puzzle"></i>مدریت گالری</a>
+                <ul class="nav-dropdown-items">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('gallery.index') }}"><i class="icon-puzzle"></i>لیست گالری</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('gallery.create') }}"><i class="icon-puzzle"></i>ایجاد گالری</a>
                     </li>
                 </ul>
             </li>

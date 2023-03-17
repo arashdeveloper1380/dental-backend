@@ -4,6 +4,7 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\admin\CategoryController;
 use App\Http\Controllers\admin\BlogController;
+use App\Http\Controllers\admin\GalleryController;
 
 /*
 |--------------------------------------------------------------------------
@@ -27,6 +28,7 @@ Route::middleware(['is_admin'])->group(function () {
 
     Route::resource('categories',CategoryController::class)->except(['show']);
     Route::resource('blog',BlogController::class)->except(['show']);
+    Route::resource('gallery',GalleryController::class)->except(['show']);
 
 //    Route::middleware('auth')->group(function () {
 //        Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

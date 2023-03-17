@@ -8,6 +8,7 @@ use App\Models\Blog;
 use App\Models\Category;
 use Illuminate\Support\Facades\File;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 class BlogController extends Controller
 {
@@ -36,7 +37,7 @@ class BlogController extends Controller
         }
         Blog::create([
             'title'        => $request->get('title'),
-            'title_en'     => $request->get('title_en'),
+            'title_en'     => Str::slug($request->get('title_en')),
             'desc'         => $request->get('desc'),
             'image'        => $image,
             'category_id'  => $request->get('category_id'),
@@ -68,7 +69,7 @@ class BlogController extends Controller
         }
         $blog->update([
             'title'        => $request->get('title'),
-            'title_en'     => $request->get('title_en'),
+            'title_en'     => Str::slug($request->get('title_en')),
             'desc'         => $request->get('desc'),
             'image'        => $image,
             'category_id'  => $request->get('category_id'),

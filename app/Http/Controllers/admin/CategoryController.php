@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\CategoryRequest;
 use App\Models\Category;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 class CategoryController extends Controller
 {
@@ -32,7 +33,7 @@ class CategoryController extends Controller
     {
         Category::create([
             'name'          => $request->get('name'),
-            'name_en'       => $request->get('name_en'),
+            'name_en'       => Str::slug($request->get('name_en')),
             'meta_desc'     => $request->get('meta_desc'),
             'meta_keywords' => $request->get('meta_keywords'),
         ]);
@@ -55,7 +56,7 @@ class CategoryController extends Controller
         $category = Category::find($id);
         $category->update([
             'name'          => $request->get('name'),
-            'name_en'       => $request->get('name_en'),
+            'name_en'       => Str::slug($request->get('name_en')),
             'meta_desc'     => $request->get('meta_desc'),
             'meta_keywords' => $request->get('meta_keywords'),
         ]);
