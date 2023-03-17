@@ -34,8 +34,8 @@ Route::middleware(['is_admin'])->group(function () {
     Route::get('edit-about/{key}',[SettingController::class,'editAbout'])->name('editAbout');
     Route::put('update-about/{key}',[SettingController::class,'UpdateAbout'])->name('updateAbout');
 
-    Route::get('edit-info/{key}',[SettingController::class,'editAbout'])->name('editInfo');
-    Route::put('update-info/{key}',[SettingController::class,'UpdateAbout'])->name('updateInfo');
+    Route::get('edit-info/{key}',[SettingController::class,'editInfo'])->name('editInfo');
+    Route::put('update-info/{key}',[SettingController::class,'UpdateInfo'])->name('updateInfo');
 
 
 //    Route::middleware('auth')->group(function () {

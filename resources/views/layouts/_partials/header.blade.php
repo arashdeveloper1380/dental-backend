@@ -73,6 +73,9 @@
                     <li class="nav-item">
                         <a class="nav-link" href="{{ url('edit-about/about') }}"><i class="icon-puzzle"></i>درباره ما</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url('edit-info/info') }}"><i class="icon-puzzle"></i>اطلاعات تماس</a>
+                    </li>
                 </ul>
             </li>
         </ul>
