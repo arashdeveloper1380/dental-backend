@@ -11,7 +11,7 @@
         <tr>
             <th style="text-align: center" scope="col">#</th>
             <th style="text-align: center" scope="col">عنوان</th>
-            <th style="text-align: center" scope="col">عنوان لاتین</th>
+            <th style="text-align: center" scope="col">دسته بندی</th>
             <th style="text-align: center" scope="col">تصویر</th>
             <th style="text-align: center" scope="col">تاریخ</th>
             <th style="text-align: center" scope="col">مدریت</th>
@@ -22,9 +22,9 @@
             <tr>
                 <th style="vertical-align: middle;" scope="row">{{ $key +1 }}</th>
                 <td style="vertical-align: middle;" width="30%">{{ $value->title }}</td>
-                <td style="vertical-align: middle;" width="20%">{{ $value->title_en }}</td>
+                <td style="vertical-align: middle;" width="20%">{{ $value->category->name }}</td>
                 <td style="vertical-align: middle;" width="20%"><img src="{{ asset('uploads/images/'.$value->image) }}" width="150"></td>
-                <td style="vertical-align: middle;">{{ \Hekmatinasser\Verta\Verta::instance($value->created_at)->format('Y/m/d') }}</td>
+                <td style="vertical-align: middle;">{{ \App\Models\Blog::createdatToJalali($value->created_at) }}</td>
                 <td style="vertical-align: middle;">
                     <a href="{{ route('blog.edit',$value->id) }}" class="btn btn-warning">ویرایش</a>
                     <form style="display: contents;" action="{{ route('blog.destroy',$value->id) }}" method="POST">
