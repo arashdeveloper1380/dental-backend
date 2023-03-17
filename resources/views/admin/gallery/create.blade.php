@@ -2,11 +2,11 @@
 
 @section('content')
     <h2>ایجاد گالری</h2><br>
-    <a href="{{ route('categories.index') }}" class="btn btn-success pull-left">لیست گالری ها</a>
+    <a href="{{ route('gallery.index') }}" class="btn btn-success pull-left">لیست گالری ها</a>
     <div class="container">
         <div class="row">
             <div class="col-lg-6">
-                <form action="{{ route('gallery.store') }}" method="post">
+                <form action="{{ route('gallery.store') }}" method="post" enctype="multipart/form-data">
                     @csrf
                     <div class="form-group">
                         <label for="name">عنوان گالری</label>
@@ -23,15 +23,15 @@
                         @enderror
                     </div>
                     <div class="form-group">
-                        <label for="image">تصویر</label>
-                        <input type="file" name="image" value="انتخاب تصویر">
+                        <label for="desc">توضیحات</label>
+                        <textarea name="desc" class="form-control" style="resize: none" cols="30" rows="10"></textarea>
                         @error('desc')
                             <div class="alert alert-danger">{{ $message }}</div>
                         @enderror
                     </div>
                     <div class="form-group">
-                        <label for="image">تصویر</label>
-                        <input type="text" name="link_insta">
+                        <label for="text">لینک اینستا</label>
+                        <input type="text" class="form-control" placeholder="لینک اینستا" name="link_insta">
                     </div>
                     <br>
                     <input type="submit" value="ثبت گالری" class="btn btn-success">
