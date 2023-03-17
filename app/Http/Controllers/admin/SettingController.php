@@ -37,7 +37,21 @@ class SettingController extends Controller
         return view('admin.info.index',compact('info'));
     }
 
-    public function UpdateInfo($key){
+    public function UpdateInfo(Request $request, $key){
+        $info = Setting::query()->where(['key' => $key])->first();
+        if($request->hasFile('image')){
+            $image = $this->file_upload($request,'image','images');
+            File::delete('uploads/images'. '/' . $info->value[2]);
+        }else{
+            $image = $info->value[2];
+        }
+        $value = $info->value = [
+            $request->get('mobile'),
+            $request->get('address'),
+            $image,
+        ];
 
+        $info->update([$value]);
+        return redirect()->back()->with('success','اطلاعات تماس با موفقیت ویرایش شد.');
     }
 }
