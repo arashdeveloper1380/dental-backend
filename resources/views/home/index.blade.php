@@ -34,6 +34,7 @@
                 <li class="nav-item"><a href="gallery.html" class="nav-link">گالری</a></li>
                 <li class="nav-item"><a href="blog.html" class="nav-link">اخبار</a></li>
                 <li class="nav-item"><a href="contact.html" class="nav-link">تماس با ما</a></li>
+                <li class="nav-item"><a href="contact.html" class="nav-link">اینستا</a></li>
             </ul>
         </div>
     </div>
@@ -61,7 +62,7 @@
 <section class="ftco-section ftco-no-pt ftco-no-pb">
     <div class="container">
         <div class="row no-gutters">
-            <div class="col-md-5 p-md-5 img img-2 mt-5 mt-md-0" style="background-image: url(images/about.jpg);"></div>
+            <div class="col-md-5 p-md-5 img img-2 mt-5 mt-md-0" style="background-image: url({{ asset('uploads/images') . '/' . $about[2] }});"></div>
             <div class="col-md-7 wrap-about py-4 py-md-5 ftco-animate" dir="rtl">
                 <div class="heading-section mb-5">
                     <div class="pl-md-5 ml-md-5 pt-md-5">
