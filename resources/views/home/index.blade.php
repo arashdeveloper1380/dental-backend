@@ -1,4 +1,6 @@
 @include('home._partials.header')
+
+{{-- Start Info --}}
 <div class="py-md-5 py-4 border-bottom" dir="rtl">
     <div class="container">
         <div class="row no-gutters d-flex align-items-start align-items-center px-3 px-md-0">
@@ -27,7 +29,7 @@
         </button>
         <div class="collapse navbar-collapse" id="ftco-nav">
             <ul class="navbar-nav m-auto">
-                <li class="nav-item active"><a href="index.html" class="nav-link pl-0">خانه</a></li>
+                <li class="nav-item active"><a href="{{ route('front.index') }}" class="nav-link pl-0">خانه</a></li>
                 <li class="nav-item"><a href="about.html" class="nav-link">درباره ما</a></li>
                 <li class="nav-item"><a href="gallery.html" class="nav-link">گالری</a></li>
                 <li class="nav-item"><a href="blog.html" class="nav-link">اخبار</a></li>
@@ -36,32 +38,26 @@
         </div>
     </div>
 </nav>
+
+{{-- Start Slider --}}
 <section class="home-slider owl-carousel" id="owl-slider">
-    <div class="slider-item" style="background-image:url(images/bg_1.jpg);" data-stellar-background-ratio="0.5">
-        <div class="overlay"></div>
-        <div class="container">
-            <div class="row no-gutters slider-text align-items-center justify-content-end" data-scrollax-parent="true">
-                <div class="col-md-6 text ftco-animate text-right">
-                    <h1 class="mb-4">لبخند تاثیر ماندگار <span>می سازد</span></h1>
-                    <h3 class="subheading">!برای نوبت گیری دکتر عباس نژاد دکمه زیر را فشار دهید</h3>
-                    <p><a href="#" class="btn btn-secondary px-4 py-3 mt-3">نوبت گیری</a></p>
+    @foreach($slider as $key => $value)
+        <div class="slider-item" style="background-image:url({{ asset('uploads/images') . '/' . $value->image }});" data-stellar-background-ratio="0.5">
+            <div class="overlay"></div>
+            <div class="container">
+                <div class="row no-gutters slider-text align-items-center justify-content-end" data-scrollax-parent="true">
+                    <div class="col-md-6 text ftco-animate text-right">
+                        <h1 class="mb-4">{{ $value->title }}</h1>
+                        <h3 class="subheading">{{ $value->desc }}</h3>
+                        <p><a href="{{ $value->link }}" class="btn btn-secondary px-4 py-3 mt-3">نوبت گیری</a></p>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-    <div class="slider-item" style="background-image:url(images/bg_2.jpg);">
-        <div class="overlay"></div>
-        <div class="container">
-            <div class="row no-gutters slider-text align-items-center justify-content-end" data-scrollax-parent="true">
-                <div class="col-md-6 text ftco-animate text-right">
-                    <h1 class="mb-4">لبخند تاثیر ماندگار <span>می سازد</span></h1>
-                    <h3 class="subheading">!برای نوبت گیری دکتر عباس نژاد دکمه زیر را فشار دهید</h3>
-                    <p><a href="#" class="btn btn-secondary px-4 py-3 mt-3">نوبت گیری</a></p>
-                </div>
-            </div>
-        </div>
-    </div>
+    @endforeach
 </section>
+
+{{-- Start About --}}
 <section class="ftco-section ftco-no-pt ftco-no-pb">
     <div class="container">
         <div class="row no-gutters">
@@ -70,16 +66,16 @@
                 <div class="heading-section mb-5">
                     <div class="pl-md-5 ml-md-5 pt-md-5">
                         <span class="subheading mb-2 text-right">خوش آمدید به دندان پزشک عباس نژاد</span>
-                        <h2 class="mb-2 text-right" style="font-size: 32px;">تخصص پزشکی مربوط به مراقبت از دندان های بیمار</h2>
+                        <h2 class="mb-2 text-right" style="font-size: 32px;">{{ $about[0] }}</h2>
                     </div>
                 </div>
                 <div class="pl-md-5 ml-md-5 mb-5">
-                    <p class="text-justify">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است، و برای شرایط فعلی تکنولوژی مورد نیاز، و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد، کتابهای زیادی در شصت و سه درصد گذشته حال و آینده، شناخت فراوان جامعه و متخصصان را می طلبد، تا با نرم افزارها شناخت بیشتری را برای طراحان رایانه ای علی الخصوص طراحان خلاقی، و فرهنگ پیشرو در زبان فارسی ایجاد کرد، در این صورت می توان امید داشت که تمام و دشواری موجود در ارائه راهکارها، و شرایط سخت تایپ به پایان رسد و زمان مورد نیاز شامل حروفچینی دستاوردهای اصلی، و جوابگوی سوالات پیوسته اهل دنیای موجود طراحی اساسا مورد استفاده قرار گیرد.</p>
+                    <p class="text-justify">{{ strip_tags($about[1]) }}</p>
                     <div class="founder d-flex align-items-center mt-5" dir="ltr">
-                        <div class="img" style="background-image: url(images/frame.jpg);"></div>
+                        <div class="img" style="background-image: url({{ asset('uploads/images') . '/' . $info[2] }});"></div>
                         <div class="text pl-3 text-right">
-                            <h3 class="mb-0">دکتر پیمان عباس نژاد</h3>
-                            <span class="position">جراح , دندانپزشک</span>
+                            <h3 class="mb-0">{{ $about[5] }}</h3>
+                            <span class="position">{{ $about[6] }}</span>
                         </div>
                     </div>
                 </div>

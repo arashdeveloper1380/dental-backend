@@ -27,6 +27,8 @@ class SettingController extends Controller
             $image,
             $request->get('meta_desc'),
             $request->get('meta_keywords'),
+            $request->get('dr_name'),
+            $request->get('dr_shogl'),
         ];
         $about->update([$value]);
         return redirect()->back()->with('success','برگه درباره ما با موفقیت ویرایش شد.');

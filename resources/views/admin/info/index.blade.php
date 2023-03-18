@@ -11,11 +11,11 @@
                     @method('put')
                     <div class="form-group">
                         <label for="name">شماره تماس</label>
-                        <input type="text" name="mobile" class="form-control" value="@isset($info) {{ $info[0] }} @endisset" placeholder="شماره تماس را وارد کنید...">
+                        <input type="text" name="mobile" class="form-control" value="@isset($info[1]) {{ $info[0] }} @endisset" placeholder="شماره تماس را وارد کنید...">
                     </div>
                     <div class="form-group">
                         <label for="name">آدرس:</label>
-                        <input type="text" name="address" class="form-control" value="@isset($info) {{ $info[1] }} @endisset" placeholder=" آدرس را وارد کنید...">
+                        <input type="text" name="address" class="form-control" value="@isset($info[1]) {{ $info[1] }} @endisset" placeholder=" آدرس را وارد کنید...">
                     </div>
                     <div class="form-group">
                         <label for="image">تصویر دکتر</label>

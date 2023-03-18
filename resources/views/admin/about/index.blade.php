@@ -11,14 +11,14 @@
                     @method('put')
                     <div class="form-group">
                         <label for="name">عنوان درباره ما</label>
-                        <input type="text" name="name" class="form-control" value="{{ $about[0] }}" placeholder="عنوان درباره ما را وارد کنید...">
+                        <input type="text" name="name" class="form-control" value="@isset($about[0]) {{ $about[0] }} @endisset" placeholder="عنوان درباره ما را وارد کنید...">
                         @error('name')
                             <div class="alert alert-danger">{{ $message }}</div>
                         @enderror
                     </div>
                     <div class="form-group" style="width: 210%">
                         <label for="desc">توضیحات</label>
-                        <textarea name="desc" id="ckeditor" cols="30" rows="10">{{ $about[1] }}</textarea>
+                        <textarea name="desc" id="ckeditor" cols="30" rows="10">@isset($about[1]) {{ $about[1] }} @endisset</textarea>
                         @error('desc')
                             <div class="alert alert-danger">{{ $message }}</div>
                         @enderror
@@ -38,18 +38,26 @@
                     <div style="border: 1px dashed #ccc; padding: 10px">
                         <div class="form-group">
                             <label for="meta_desc">توضیحات دسته</label>
-                            <input type="text" name="meta_desc" value="{{ $about[3] }}" class="form-control" placeholder="توضیحات دسته را وارد کنید...">
+                            <input type="text" name="meta_desc" value="@isset($about[3]) {{ $about[3] }} @endisset" class="form-control" placeholder="توضیحات دسته را وارد کنید...">
                             @error('meta_desc')
                             <div class="alert alert-danger">{{ $message }}</div>
                             @enderror
                         </div>
                         <div class="form-group">
                             <label for="meta_desc">کلمات کلیدی | با(,) جدا شود</label>
-                            <input type="text" name="meta_keywords" value="{{ $about[4] }}" class="form-control" placeholder="مثلا: دندانپزشک, ساخت اینپلمنت">
+                            <input type="text" name="meta_keywords" value="@isset($about[4]) {{ $about[4] }} @endisset" class="form-control" placeholder="مثلا: دندانپزشک, ساخت اینپلمنت">
                             @error('meta_keywords')
                             <div class="alert alert-danger">{{ $message }}</div>
                             @enderror
                         </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="name">نام دکتر:</label>
+                        <input type="text" name="dr_name" class="form-control" value="@isset($about[5]) {{ $about[5] }} @endisset" placeholder="نام دکتر را وارد کنید...">
+                    </div>
+                    <div class="form-group">
+                        <label for="name"> شغل:</label>
+                        <input type="text" name="dr_shogl" class="form-control" value="@isset($about[6]) {{ $about[6] }} @endisset" placeholder="شغل دکتر را وارد کنید...">
                     </div>
                     <br>
                     <input type="submit" value="ویرایش درباره ما" class="btn btn-success">
