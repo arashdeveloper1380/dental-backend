@@ -68,6 +68,17 @@
                 </ul>
             </li>
             <li class="nav-item nav-dropdown">
+                <a class="nav-link nav-dropdown-toggle" href="#"><i class="icon-puzzle"></i>مدریت اسلایدر</a>
+                <ul class="nav-dropdown-items">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('slider.index') }}"><i class="icon-puzzle"></i>لیست اسلایدر ها</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('slider.create') }}"><i class="icon-puzzle"></i>ایجاد اسلایدر</a>
+                    </li>
+                </ul>
+            </li>
+            <li class="nav-item nav-dropdown">
                 <a class="nav-link nav-dropdown-toggle" href="#"><i class="icon-puzzle"></i>تنظیمات</a>
                 <ul class="nav-dropdown-items">
                     <li class="nav-item">

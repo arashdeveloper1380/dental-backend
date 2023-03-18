@@ -25,7 +25,7 @@
                     </div>
                     <div class="form-group">
                         <label for="image">تصویر</label>
-                        <input type="file" name="image" value="انتخاب تصویر">
+                        <input type="file" name="image" value="انتخاب تصویر" class="form-control">
                         @if(!empty($about[2]))
                             <img src="{{ asset('uploads/images') . '/'. $about[2] }}" width="150" alt="">
                         @endif

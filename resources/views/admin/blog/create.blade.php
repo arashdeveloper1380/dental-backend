@@ -24,7 +24,7 @@
                     </div>
                     <div class="form-group">
                         <label for="image">تصویر</label>
-                        <input type="file" name="image" value="انتخاب تصویر">
+                        <input type="file" name="image" value="انتخاب تصویر" class="form-control">
                         @error('image')
                             <div class="alert alert-danger">{{ $message }}</div>
                         @enderror

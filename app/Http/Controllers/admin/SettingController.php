@@ -49,6 +49,7 @@ class SettingController extends Controller
             $request->get('mobile'),
             $request->get('address'),
             $image,
+            $request->get('time')
         ];
 
         $info->update([$value]);
