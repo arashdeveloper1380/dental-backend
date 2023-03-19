@@ -32,6 +32,14 @@
                         @error('image')
                             <div class="alert alert-danger">{{ $message }}</div>
                         @enderror
+                    </div>
+                    <div class="form-group">
+                        <label for="name">نام دکتر:</label>
+                        <input type="text" name="dr_name" class="form-control" value="@isset($about[5]) {{ $about[5] }} @endisset" placeholder="نام دکتر را وارد کنید...">
+                    </div>
+                    <div class="form-group">
+                        <label for="name"> شغل:</label>
+                        <input type="text" name="dr_shogl" class="form-control" value="@isset($about[6]) {{ $about[6] }} @endisset" placeholder="شغل دکتر را وارد کنید...">
                     </div><br><br>
 
                     <h4>بخش سئو</h4>
@@ -50,14 +58,6 @@
                             <div class="alert alert-danger">{{ $message }}</div>
                             @enderror
                         </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="name">نام دکتر:</label>
-                        <input type="text" name="dr_name" class="form-control" value="@isset($about[5]) {{ $about[5] }} @endisset" placeholder="نام دکتر را وارد کنید...">
-                    </div>
-                    <div class="form-group">
-                        <label for="name"> شغل:</label>
-                        <input type="text" name="dr_shogl" class="form-control" value="@isset($about[6]) {{ $about[6] }} @endisset" placeholder="شغل دکتر را وارد کنید...">
                     </div>
                     <br>
                     <input type="submit" value="ویرایش درباره ما" class="btn btn-success">

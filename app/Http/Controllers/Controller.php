@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Routing\Controller as BaseController;
+use Hekmatinasser\Verta\Verta;
 
 class Controller extends BaseController
 {
@@ -21,5 +22,17 @@ class Controller extends BaseController
         }else{
             return null;
         }
+    }
+
+    public static function getDayJalali($value){
+        return Verta::instance($value)->format('d');
+    }
+
+    public static function getMonthName($value){
+        return Verta::instance($value)->format('F');
+    }
+
+    public static function getYear($value){
+        return Verta::instance($value)->format('Y');
     }
 }

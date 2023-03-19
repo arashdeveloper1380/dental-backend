@@ -50,7 +50,7 @@
                     <div class="col-md-6 text ftco-animate text-right">
                         <h1 class="mb-4">{{ $value->title }}</h1>
                         <h3 class="subheading">{{ $value->desc }}</h3>
-                        <p><a href="{{ $value->link }}" class="btn btn-secondary px-4 py-3 mt-3">نوبت گیری</a></p>
+                        <p><a href="{{ $value->link }}" target="_blank" class="btn btn-secondary px-4 py-3 mt-3">نوبت گیری</a></p>
                     </div>
                 </div>
             </div>
@@ -145,7 +145,7 @@
             </div>
             <div class="col-md-3 d-flex align-items-stretch">
                 <div class="consultation w-100 text-center px-4 px-md-5 nobat-right">
-                    <h3 class="mb-4">سوابق تحصیلی و حرفه‌ای</h3>
+                    <h3 class="mb-4">سوابق تحصیلی و حرفه‌</h3>
                     <p>دکترای حرفه ای دندانپزشکی</p>
                 </div>
             </div>
@@ -387,72 +387,30 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-md-4 ftco-animate">
-                <div class="blog-entry">
-                    <a href="blog-single.html" class="block-20 d-flex align-items-end justify-content-end" style="background-image: url('images/image_1.jpg');">
-                        <div class="meta-date text-center p-2">
-                            <span class="day">18</span>
-                            <span class="mos">شهریور</span>
-                            <span class="yr">1042</span>
-                        </div>
-                    </a>
-                    <div class="text bg-white p-4 text-right">
-                        <h3 class="heading"><a href="#">آشنایی با کاربردهای متفاوت لیزر در دندانپزشکی</a></h3>
-                        <p>آشنایی با کاربردهای متفاوت لیزر در دندانپزشکی آشنایی با کاربردهای متفاوت لیزر در دندانپزشکی</p>
-                        <div class="d-flex align-items-center mt-4">
-                            <p class="mb-0"><a href="#" class="btn btn-primary">ادامه مطلب </a></p>
-                            <p class="ml-auto mb-0">
-                                <a href="#" class="mr-2">Admin</a>
-                                <a href="#" class="meta-chat"><span class="icon-chat"></span> 3</a>
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4 ftco-animate">
-                <div class="blog-entry">
-                    <a href="blog-single.html" class="block-20 d-flex align-items-end justify-content-end" style="background-image: url('images/image_2.jpg');">
-                        <div class="meta-date text-center p-2">
-                            <span class="day">10</span>
-                            <span class="mos">شهریور</span>
-                            <span class="yr">1042</span>
-                        </div>
-                    </a>
-                    <div class="text bg-white p-4 text-right">
-                        <h3 class="heading"><a href="#">مراقبت های لازم پس از درمان ریشه دندان</a></h3>
-                        <p>مراقبت های لازم پس از درمان ریشه دندان مراقبت های لازم پس از درمان ریشه دندان</p>
-                        <div class="d-flex align-items-center mt-4">
-                            <p class="mb-0"><a href="#" class="btn btn-primary">ادامه مطلب </a></p>
-                            <p class="ml-auto mb-0">
-                                <a href="#" class="mr-2">Admin</a>
-                                <a href="#" class="meta-chat"><span class="icon-chat"></span> 3</a>
-                            </p>
+            @foreach($blog as $key => $value)
+                <div class="col-md-4 ftco-animate">
+                    <div class="blog-entry">
+                        <a href="blog-single.html" class="block-20 d-flex align-items-end justify-content-end" style="background-image: url('{{ asset('uploads/images') . '/' . $value->image }}');">
+                            <div class="meta-date text-center p-2">
+                                <span class="day">{{ \App\Http\Controllers\Controller::getDayJalali($value->created_at) }}</span>
+                                <span class="mos">{{ \App\Http\Controllers\Controller::getMonthName($value->created_at) }}</span>
+                                <span class="yr">{{ \App\Http\Controllers\Controller::getYear($value->created_at) }}</span>
+                            </div>
+                        </a>
+                        <div class="text bg-white p-4 text-right">
+                            <h3 class="heading"><a href="#">{{ $value->title }}</a></h3>
+                            <p class="text-justify" dir="rtl">{!! strip_tags(Str::limit($value->desc, 90)) !!}</p>
+                            <div class="d-flex align-items-center mt-4">
+                                <p class="mb-0"><a href="#" class="btn btn-primary">ادامه مطلب </a></p>
+                                <p class="ml-auto mb-0">
+                                    <a href="#" class="mr-2">دکتر عباس نژاد</a>
+                                    <a href="#" class="meta-chat"><span class="icon-chat"></span>{{ $value->comments->count() ?? 0 }}</a>
+                                </p>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-md-4 ftco-animate">
-                <div class="blog-entry">
-                    <a href="blog-single.html" class="block-20 d-flex align-items-end justify-content-end" style="background-image: url('images/image_3.jpg');">
-                        <div class="meta-date text-center p-2">
-                            <span class="day">23</span>
-                            <span class="mos">شهریور</span>
-                            <span class="yr">1042</span>
-                        </div>
-                    </a>
-                    <div class="text bg-white p-4 text-right">
-                        <h3 class="heading"><a href="#">عفونت و التهاب پالپ دندان</a></h3>
-                        <p>عفونت و التهاب پالپ دندان عفونت و التهاب پالپ دندان عفونت و التهاب پالپ دندان</p>
-                        <div class="d-flex align-items-center mt-4">
-                            <p class="mb-0"><a href="#" class="btn btn-primary"> ادامه مطلب</a></p>
-                            <p class="ml-auto mb-0">
-                                <a href="#" class="mr-2">Admin</a>
-                                <a href="#" class="meta-chat"><span class="icon-chat"></span> 3</a>
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            @endforeach
         </div>
     </div>
 </section>

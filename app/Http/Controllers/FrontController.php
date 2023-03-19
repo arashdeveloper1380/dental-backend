@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Blog;
 use App\Models\Setting;
 use App\Models\Slider;
 use Illuminate\Http\Request;
@@ -13,6 +14,7 @@ class FrontController extends Controller
             'info'      => Setting::query()->where(['key' => 'info'])->first()->value,
             'about'     => Setting::query()->where(['key' => 'about'])->first()->value,
             'slider'    => Slider::orderByDesc('created_at')->get(),
+            'blog'      => Blog::with('comments')->orderByDesc('created_at')->get(),
         ]);
     }
 }

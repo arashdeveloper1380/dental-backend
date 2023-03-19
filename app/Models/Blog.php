@@ -21,4 +21,8 @@ class Blog extends Model
     public static function createdatToJalali($value) {
         return Verta::instance($value)->format('Y/m/d');
     }
+
+    public function comments(){
+        return $this->hasMany(Comment::class,'blog_id');
+    }
 }
