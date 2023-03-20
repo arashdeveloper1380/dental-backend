@@ -43,9 +43,9 @@
         </button>
         <div class="collapse navbar-collapse" id="ftco-nav">
             <ul class="navbar-nav m-auto">
-                <li class="nav-item active"><a href="{{ route('front.index') }}" class="nav-link pl-0">خانه</a></li>
-                <li class="nav-item"><a href="about.html" class="nav-link">درباره ما</a></li>
-                <li class="nav-item"><a href="gallery.html" class="nav-link">گالری</a></li>
+                <li class="nav -item active"><a href="{{ route('front.index') }}" class="nav-link pl-0">خانه</a></li>
+                <li class="nav-item"><a href="{{ route('about') }}" class="nav-link">درباره ما</a></li>
+                <li class="nav-item"><a href="{{ route('galleries') }}" class="nav-link">گالری</a></li>
                 <li class="nav-item"><a href="blog.html" class="nav-link">اخبار</a></li>
                 <li class="nav-item"><a href="contact.html" class="nav-link">تماس با ما</a></li>
                 <li class="nav-item"><a href="contact.html" class="nav-link">اینستا</a></li>

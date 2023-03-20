@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Blog;
 use App\Models\Category;
 use App\Models\Comment;
+use App\Models\Gallery;
 use App\Models\Setting;
 use App\Models\Slider;
 use Illuminate\Http\Request;
@@ -40,5 +41,19 @@ class FrontController extends Controller
             'status'    => 0
         ]);
         return redirect()->back()->with('success','نظر شما با موفقیت ثبت شد بعد از تایید دکتر نمایش خواهیم داد!');
+    }
+
+    public function about(){
+        return view('home.about',[
+            'info'          => Setting::query()->where(['key' => 'info'])->first()->value,
+            'about'         => Setting::query()->where(['key' => 'about'])->first()->value,
+        ]);
+    }
+
+    public function gallery(){
+        return view('home.gallery',[
+            'info'      => Setting::query()->where(['key' => 'info'])->first()->value,
+            'gallery'   => Gallery::orderByDesc('created_at')->paginate(1),
+        ]);
     }
 }

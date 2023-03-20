@@ -19,6 +19,8 @@ use App\Http\Controllers\admin\CommentController;
     Route::get('/',[FrontController::class,'index'])->name('front.index');
     Route::get('single/{slug}',[FrontController::class,'single'])->name('front.single');
     Route::post('store-comment',[FrontController::class,'storeComment'])->name('store.command');
+    Route::get('about',[FrontController::class,'about'])->name('about');
+    Route::get('galleries',[FrontController::class,'gallery'])->name('galleries');
 
 /*
 |--------------------------------------------------------------------------
