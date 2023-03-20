@@ -11,23 +11,13 @@ use App\Http\Controllers\admin\sliderController;
 
 /*
 |--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider and all of them will
-| be assigned to the "web" middleware group. Make something great!
-|
-*/
-
-
-/*
-|--------------------------------------------------------------------------
 | Front Routes
 |--------------------------------------------------------------------------
 */
 
     Route::get('/',[FrontController::class,'index'])->name('front.index');
+    Route::get('single/{slug}',[FrontController::class,'single'])->name('front.single');
+    Route::post('store-comment',[FrontController::class,'storeComment'])->name('store.command');
 
 /*
 |--------------------------------------------------------------------------

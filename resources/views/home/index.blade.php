@@ -1,45 +1,4 @@
 @include('home._partials.header')
-
-{{-- Start Info --}}
-<div class="py-md-5 py-4 border-bottom" dir="rtl">
-    <div class="container">
-        <div class="row no-gutters d-flex align-items-start align-items-center px-3 px-md-0">
-            <div class="col-md-4 order-md-2 mb-2 mb-md-0 align-items-center text-center">
-                <a class="navbar-brand" href="{{ route('front.index') }}">دکتر عباس نژاد</a>
-            </div>
-            <div class="col-md-4 order-md-1 d-flex topper mb-md-0 mb-2 align-items-center text-md-right">
-                <div class="pr-md-4 pl-md-0 text-right pl-3 text">
-                    <p class="con"><a href="tel:04133697921"><span>شماره تماس : </span> <span>{{ $info[0] }}</span></a></p>
-                    <p class="con address">{{ $info[1] }}</p>
-                </div>
-            </div>
-            <div class="col-md-4 order-md-3 d-flex topper mb-md-0 align-items-center">
-                <div class="text text-right pl-3 pl-md-3">
-                    <p class="hr"><span>ساعات کار</span></p>
-                    <p class="time address"><span>{{ $info[3] }}</p>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark ftco-navbar-light" id="ftco-navbar">
-    <div class="container d-flex align-items-center">
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="oi oi-menu"></span> منو
-        </button>
-        <div class="collapse navbar-collapse" id="ftco-nav">
-            <ul class="navbar-nav m-auto">
-                <li class="nav-item active"><a href="{{ route('front.index') }}" class="nav-link pl-0">خانه</a></li>
-                <li class="nav-item"><a href="about.html" class="nav-link">درباره ما</a></li>
-                <li class="nav-item"><a href="gallery.html" class="nav-link">گالری</a></li>
-                <li class="nav-item"><a href="blog.html" class="nav-link">اخبار</a></li>
-                <li class="nav-item"><a href="contact.html" class="nav-link">تماس با ما</a></li>
-                <li class="nav-item"><a href="contact.html" class="nav-link">اینستا</a></li>
-            </ul>
-        </div>
-    </div>
-</nav>
-
 {{-- Start Slider --}}
 <section class="home-slider owl-carousel" id="owl-slider">
     @foreach($slider as $key => $value)
@@ -390,7 +349,7 @@
             @foreach($blog as $key => $value)
                 <div class="col-md-4 ftco-animate">
                     <div class="blog-entry">
-                        <a href="blog-single.html" class="block-20 d-flex align-items-end justify-content-end" style="background-image: url('{{ asset('uploads/images') . '/' . $value->image }}');">
+                        <a href="{{ route('front.single',$value->title_en) }}" class="block-20 d-flex align-items-end justify-content-end" style="background-image: url('{{ asset('uploads/images') . '/' . $value->image }}');">
                             <div class="meta-date text-center p-2">
                                 <span class="day">{{ \App\Http\Controllers\Controller::getDayJalali($value->created_at) }}</span>
                                 <span class="mos">{{ \App\Http\Controllers\Controller::getMonthName($value->created_at) }}</span>
@@ -398,13 +357,13 @@
                             </div>
                         </a>
                         <div class="text bg-white p-4 text-right">
-                            <h3 class="heading"><a href="#">{{ $value->title }}</a></h3>
+                            <h3 class="heading"><a href="{{ route('front.single',$value->title_en) }}">{{ $value->title }}</a></h3>
                             <p class="text-justify" dir="rtl">{!! strip_tags(Str::limit($value->desc, 90)) !!}</p>
                             <div class="d-flex align-items-center mt-4">
-                                <p class="mb-0"><a href="#" class="btn btn-primary">ادامه مطلب </a></p>
+                                <p class="mb-0"><a href="{{ route('front.single',$value->title_en) }}" class="btn btn-primary">ادامه مطلب </a></p>
                                 <p class="ml-auto mb-0">
                                     <a href="#" class="mr-2">دکتر عباس نژاد</a>
-                                    <a href="#" class="meta-chat"><span class="icon-chat"></span>{{ $value->comments->count() ?? 0 }}</a>
+                                    <a href="#" class="meta-chat"><span class="icon-chat" style="vertical-align: middle;"></span>{{ $value->comments->count() ?? 0 }}</a>
                                 </p>
                             </div>
                         </div>

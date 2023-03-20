@@ -13,6 +13,8 @@ return new class extends Migration
     {
         Schema::create('comments', function (Blueprint $table) {
             $table->id();
+            $table->string('name')->nullable();
+            $table->text('mobile')->nullable();
             $table->text('comment');
             $table->integer('parent_id');
 
