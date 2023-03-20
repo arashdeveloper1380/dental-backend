@@ -36,7 +36,7 @@
                     </div>
                 </div>
                 <div class="pt-5 mt-5">
-                    <h3 class="mb-5 h4 font-weight-bold">{{ $blog->comments->where(['parent_id' => 0,'status' => 1])->count() }} کامنت </h3>
+                    <h3 class="mb-5 h4 font-weight-bold">{{ \App\Http\Controllers\Controller::commentCount($blog->id) }} کامنت </h3>
 
                         <ul class="comment-list">
                             <div class="cpmment-box">

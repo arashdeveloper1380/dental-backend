@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Comment;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Routing\Controller as BaseController;
@@ -34,5 +35,10 @@ class Controller extends BaseController
 
     public static function getYear($value){
         return Verta::instance($value)->format('Y');
+    }
+
+    public static function CommentCount($blog){
+        return Comment::query()->where(['blog_id' => $blog,'status' => 1])
+            ->whereNotNull('name')->count();
     }
 }

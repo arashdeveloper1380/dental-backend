@@ -22,12 +22,12 @@ class FrontController extends Controller
 
     public function single($slug){
         return view('home.single',[
-            'info'      => Setting::query()->where(['key' => 'info'])->first()->value,
-            'about'     => Setting::query()->where(['key' => 'about'])->first()->value,
-            'blog'      => Blog::with('comments','category')->where('title_en' ,$slug)->first(),
-            'otherBlog' => Blog::query()->where('title_en', '!=', $slug)->get(),
-            'category'  => Category::select('name','name_en')->get(),
-            'comment'   => Comment::with('blogs')->where('status',1)->get(),
+            'info'          => Setting::query()->where(['key' => 'info'])->first()->value,
+            'about'         => Setting::query()->where(['key' => 'about'])->first()->value,
+            'blog'          => Blog::with('comments','category')->where('title_en' ,$slug)->first(),
+            'otherBlog'     => Blog::query()->where('title_en', '!=', $slug)->get(),
+            'category'      => Category::select('name','name_en')->get(),
+            'comment'       => Comment::with('blogs')->where('status',1)->get(),
         ]);
     }
 
