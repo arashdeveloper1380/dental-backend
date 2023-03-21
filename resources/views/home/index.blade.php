@@ -338,7 +338,7 @@
                                 <p class="mb-0"><a href="{{ route('front.single',$value->title_en) }}" class="btn btn-primary">ادامه مطلب </a></p>
                                 <p class="ml-auto mb-0">
                                     <a href="#" class="mr-2">دکتر عباس نژاد</a>
-                                    <a href="#" class="meta-chat"><span class="icon-chat" style="vertical-align: middle;"></span>{{ $value->comments->count() ?? 0 }}</a>
+                                    <a href="#" class="meta-chat"><span class="icon-chat" style="vertical-align: middle;"></span>{{ \App\Http\Controllers\Controller::commentCount($value->id) }} </a>
                                 </p>
                             </div>
                         </div>

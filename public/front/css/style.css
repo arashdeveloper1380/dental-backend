@@ -60,6 +60,16 @@ body {
   text-align: left;
   background-color: #fff; }
 
+.pagination{
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: center;
+    list-style: none;
+}
+ul.pagination li {
+    border: 1px solid #ccc;
+    padding: 5px 15px;
+}
 [tabindex="-1"]:focus {
   outline: 0 !important; }
 .text-right{
@@ -1599,7 +1609,7 @@ button.bg-dark:focus {
     margin-left: 1.5rem !important; }
   .ml-md-5 {
     margin-left: 3rem !important; }
-  
+
   .px-md-0 {
     padding-right: 0 !important; }
   .pl-md-0,
@@ -1614,10 +1624,10 @@ button.bg-dark:focus {
   .pt-md-5,
   .py-md-5 {
     padding-top: 3rem !important; }
-  
+
   .px-md-5 {
     padding-right: 3rem !important; }
-  
+
   .py-md-5 {
     padding-bottom: 3rem !important; }
   .pl-md-5,

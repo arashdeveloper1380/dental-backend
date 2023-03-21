@@ -21,6 +21,7 @@ use App\Http\Controllers\admin\CommentController;
     Route::post('store-comment',[FrontController::class,'storeComment'])->name('store.command');
     Route::get('about',[FrontController::class,'about'])->name('about');
     Route::get('galleries',[FrontController::class,'gallery'])->name('galleries');
+    Route::get('blogs',[FrontController::class,'blogs'])->name('blogs');
 
 /*
 |--------------------------------------------------------------------------

@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="{{ asset('front/css/flaticon.css') }}">
     <link rel="stylesheet" href="{{ asset('front/css/icomoon.css') }}">
     <link rel="stylesheet" href="{{ asset('front/css/style.css') }}">
+    @yield('header')
 </head>
 <body>
 <div class="py-md-5 py-4 border-bottom" dir="rtl">
@@ -43,12 +44,12 @@
         </button>
         <div class="collapse navbar-collapse" id="ftco-nav">
             <ul class="navbar-nav m-auto">
-                <li class="nav -item active"><a href="{{ route('front.index') }}" class="nav-link pl-0">خانه</a></li>
+                <li class="nav-item active"><a href="{{ route('front.index') }}" class="nav-link pl-0">خانه</a></li>
                 <li class="nav-item"><a href="{{ route('about') }}" class="nav-link">درباره ما</a></li>
                 <li class="nav-item"><a href="{{ route('galleries') }}" class="nav-link">گالری</a></li>
-                <li class="nav-item"><a href="blog.html" class="nav-link">اخبار</a></li>
+                <li class="nav-item"><a href="{{ route('blogs') }}" class="nav-link">اخبار</a></li>
                 <li class="nav-item"><a href="contact.html" class="nav-link">تماس با ما</a></li>
-                <li class="nav-item"><a href="contact.html" class="nav-link">اینستا</a></li>
+                <li class="nav-item"><a href="insta.sarzaminmelk.com" class="nav-link">اینستا</a></li>
             </ul>
         </div>
     </div>

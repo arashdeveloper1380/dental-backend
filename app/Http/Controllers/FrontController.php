@@ -17,7 +17,7 @@ class FrontController extends Controller
             'info'      => Setting::query()->where(['key' => 'info'])->first()->value,
             'about'     => Setting::query()->where(['key' => 'about'])->first()->value,
             'slider'    => Slider::orderByDesc('created_at')->get(),
-            'blog'      => Blog::with('comments')->orderByDesc('created_at')->get(),
+            'blog'      => Blog::with('comments')->orderByDesc('created_at')->take('3')->get(),
         ]);
     }
 
@@ -53,7 +53,14 @@ class FrontController extends Controller
     public function gallery(){
         return view('home.gallery',[
             'info'      => Setting::query()->where(['key' => 'info'])->first()->value,
-            'gallery'   => Gallery::orderByDesc('created_at')->paginate(1),
+            'gallery'   => Gallery::orderByDesc('created_at')->paginate(10),
+        ]);
+    }
+
+    public function blogs(){
+        return view('home.blogs',[
+            'info'   => Setting::query()->where(['key' => 'info'])->first()->value,
+            'blogs'  => Blog::with('comments')->paginate(10),
         ]);
     }
 }
