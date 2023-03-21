@@ -22,6 +22,8 @@ use App\Http\Controllers\admin\CommentController;
     Route::get('about',[FrontController::class,'about'])->name('about');
     Route::get('galleries',[FrontController::class,'gallery'])->name('galleries');
     Route::get('blogs',[FrontController::class,'blogs'])->name('blogs');
+    Route::get('contact',[FrontController::class,'contact'])->name('contact');
+    Route::post('contact-store',[FrontController::class,'contactStore'])->name('contact.store');
 
 /*
 |--------------------------------------------------------------------------
@@ -48,6 +50,7 @@ use App\Http\Controllers\admin\CommentController;
         Route::get('answer-form/{id}',[CommentController::class,'answerForm'])->name('answer.form');
         Route::post('answer-store',[CommentController::class,'answerFormStore'])->name('answer.form.store');
 
+        Route::get('messages',[SettingController::class,'messages'])->name('messages');
         // ------- Settings --------
         Route::get('edit-about/{key}',[SettingController::class,'editAbout'])->name('editAbout');
         Route::put('update-about/{key}',[SettingController::class,'UpdateAbout'])->name('updateAbout');

@@ -48,7 +48,7 @@
                 <li class="nav-item"><a href="{{ route('about') }}" class="nav-link">درباره ما</a></li>
                 <li class="nav-item"><a href="{{ route('galleries') }}" class="nav-link">گالری</a></li>
                 <li class="nav-item"><a href="{{ route('blogs') }}" class="nav-link">اخبار</a></li>
-                <li class="nav-item"><a href="contact.html" class="nav-link">تماس با ما</a></li>
+                <li class="nav-item"><a href="{{ route('contact') }}" class="nav-link">تماس با ما</a></li>
                 <li class="nav-item"><a href="insta.sarzaminmelk.com" class="nav-link">اینستا</a></li>
             </ul>
         </div>

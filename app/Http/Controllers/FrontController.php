@@ -63,4 +63,23 @@ class FrontController extends Controller
             'blogs'  => Blog::with('comments')->paginate(10),
         ]);
     }
+
+    public function contact(){
+        return view('home.contact',[
+            'info'      => Setting::query()->where(['key' => 'info'])->first()->value,
+        ]);
+    }
+
+    public function contactStore(Request $request){
+        Setting::create([
+            'key'   => 'contact',
+            'value' => [
+                $request->get('name'),
+                $request->get('mobile'),
+                $request->get('subject'),
+                $request->get('message'),
+            ],
+        ]);
+        return redirect()->back()->with('success','پیام شما با موفقیت به دکتر ارسال شد...!');
+    }
 }

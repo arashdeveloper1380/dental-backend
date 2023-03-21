@@ -47,7 +47,7 @@
                     <h3 class="open-hours pl-4"><span class="ion-ios-time mr-3"></span>از روز شنبه تا چهار شنبه</h3>
                 </div>
                 <div class="ftco-footer-widget mb-5 img-dr">
-                    <img src="images/doc-8.jpg" alt="" width="70%">
+                    <img src="{{ asset('front/images/doc-8.jpg') }}" alt="" width="70%">
                 </div>
             </div>
         </div>

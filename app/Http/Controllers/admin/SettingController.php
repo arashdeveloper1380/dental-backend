@@ -57,4 +57,10 @@ class SettingController extends Controller
         $info->update([$value]);
         return redirect()->back()->with('success','اطلاعات تماس با موفقیت ویرایش شد.');
     }
+
+    public function messages(){
+        return view('admin.messages.index',[
+            'contact' => Setting::query()->where(['key' => 'contact'])->get(),
+        ]);
+    }
 }

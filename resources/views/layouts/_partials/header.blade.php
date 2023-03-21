@@ -79,7 +79,10 @@
                 </ul>
             </li>
             <li class="nav-item nav-dropdown">
-                <a class="nav-link nav-dropdown-toggle" href="{{ route('comment.index') }}"><i class="icon-puzzle"></i>مدریت کامنت ها</a>
+                <a class="nav-link" href="{{ route('comment.index') }}"><i class="icon-puzzle"></i>مدریت کامنت ها</a>
+            </li>
+            <li class="nav-item nav-dropdown">
+                <a class="nav-link" href="{{ route('messages') }}"><i class="icon-puzzle"></i>پیام های دریافتی</a>
             </li>
             <li class="nav-item nav-dropdown">
                 <a class="nav-link nav-dropdown-toggle" href="#"><i class="icon-puzzle"></i>تنظیمات</a>
@@ -92,6 +95,7 @@
                     </li>
                 </ul>
             </li>
+
         </ul>
     </nav>
 </div>
