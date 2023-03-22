@@ -34,12 +34,27 @@
                         @enderror
                     </div>
                     <div class="form-group">
+                        <label for="name"> سوابق تحصیلی:</label>
+                        <input type="text" name="tahsili" class="form-control" value="@isset($about[9]) {{ $about[9] }} @endisset" placeholder="شغل دکتر را وارد کنید...">
+                    </div>
+                    <div class="form-group">
                         <label for="name">نام دکتر:</label>
                         <input type="text" name="dr_name" class="form-control" value="@isset($about[5]) {{ $about[5] }} @endisset" placeholder="نام دکتر را وارد کنید...">
                     </div>
                     <div class="form-group">
                         <label for="name"> شغل:</label>
                         <input type="text" name="dr_shogl" class="form-control" value="@isset($about[6]) {{ $about[6] }} @endisset" placeholder="شغل دکتر را وارد کنید...">
+                    </div><br>
+                    <h4>بخش سخن صفحه اصلی</h4>
+                    <div style="border: 1px dashed #ccc; padding: 10px">
+                        <div class="form-group">
+                            <label for="name">سخن دکتر:</label>
+                            <input type="text" name="soghan" class="form-control" value="@isset($about[7]) {{ $about[7] }} @endisset" placeholder="سخن دکتر را وارد کنید...">
+                        </div>
+                        <div class="form-group">
+                            <label for="name">توضیحات بیشتر دکتر:</label>
+                            <textarea name="soghan_desc" class="form-control" style="resize: none" cols="30" rows="10">@isset($about[8]) {{ $about[8] }} @endisset</textarea>
+                        </div>
                     </div><br><br>
 
                     <h4>بخش سئو</h4>

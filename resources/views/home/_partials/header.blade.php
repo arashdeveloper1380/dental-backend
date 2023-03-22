@@ -15,7 +15,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="{{ asset('front/css/open-iconic-bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ asset('front/css/animate.css') }}">
-    @if(Route::has('about') && Route::has('front.index'))
+    @if(Request::is('/') || \Illuminate\Support\Facades\Route::name('about'))
         <link rel="stylesheet" href="{{ asset('front/css/owl.carousel.min.css') }}">
         <link rel="stylesheet" href="{{ asset('front/css/owl.theme.default.min.css') }}">
     @endif
@@ -140,11 +140,15 @@
 <script src="{{ asset('front/js/bootstrap.min.js') }}"></script>
 <script src="{{ asset('front/js/jquery.waypoints.min.js') }}"></script>
 <script src="{{ asset('front/js/jquery.stellar.min.js') }}"></script>
-<script src="{{ asset('front/js/owl.carousel.min.js') }}"></script>
+@if(Request::is('/') || \Illuminate\Support\Facades\Route::name('about'))
+    <script src="{{ asset('front/js/owl.carousel.min.js') }}"></script>
+@endif
 <script src="{{ asset('front/js/aos.js') }}"></script>
 <script src="{{ asset('front/js/scrollax.min.js') }}"></script>
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&amp;sensor=false"></script>
-<script src="{{ asset('front/js/google-map.js') }}"></script>
+@if(\Illuminate\Support\Facades\Route::name('contact'))
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&amp;sensor=false"></script>
+    <script src="{{ asset('front/js/google-map.js') }}"></script>
+@endif
 <script src="{{ asset('front/js/main.js') }}"></script>
 </body>
 </html>

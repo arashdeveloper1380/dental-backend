@@ -27,9 +27,9 @@
             <div class="col-md-3 d-flex align-items-stretch">
                 <div class="consultation w-100 text-center px-4 px-md-5">
                     <h3 class="mb-4">خدمات</h3>
-                    <p>خدمات زیبایی</p>
-                    <p>انواع جراحی</p>
-                    <p>انواع ایمپلنت</p>
+                    @foreach($services as $value)
+                    <p>{{ $value->value[0]}}</p>
+                    @endforeach
                 </div>
             </div>
             <div class="col-md-6 d-flex align-items-stretch">
@@ -81,8 +81,8 @@
             </div>
             <div class="col-md-3 d-flex align-items-stretch">
                 <div class="consultation w-100 text-center px-4 px-md-5 nobat-right">
-                    <h3 class="mb-4">سوابق تحصیلی و حرفه‌</h3>
-                    <p>دکترای حرفه ای دندانپزشکی</p>
+                    <h3 class="mb-4">سوابق تحصیلی </h3>
+                    <p>{{ $about[9] }}</p>
                 </div>
             </div>
         </div>
@@ -114,12 +114,12 @@
     </div>
 </section>
 
-<section class="ftco-section intro" style="background-image: url(images/bg_3.jpg);" data-stellar-background-ratio="0.5">
+<section class="ftco-section intro" style="background-image: url({{ asset('front/images/bg_3.jpg') }});" data-stellar-background-ratio="0.5">
     <div class="container" dir="rtl">
         <div class="row">
             <div class="col-md-6 text-right">
-                <h3 class="mb-4">تخصص پزشکی مربوط به مراقبت از دندان های بیمار</h3>
-                <p class="banner-txet">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است</p>
+                <h3 class="mb-4">{{ $about[7] }}</h3>
+                <p class="banner-txet">{{ $about[8] }}</p>
             </div>
         </div>
     </div>
@@ -142,12 +142,6 @@
                             <h3>{{ $value->value[0] }}</h3>
                             <div class="faded">
                                 <p>{{ $value->value[2] }}</p>
-                                <ul class="ftco-social text-center">
-                                    <li class="ftco-animate"><a href="#" class="d-flex align-items-center justify-content-center"><span class="icon-twitter"></span></a></li>
-                                    <li class="ftco-animate"><a href="#" class="d-flex align-items-center justify-content-center"><span class="icon-facebook"></span></a></li>
-                                    <li class="ftco-animate"><a href="#" class="d-flex align-items-center justify-content-center"><span class="icon-google-plus"></span></a></li>
-                                    <li class="ftco-animate"><a href="#" class="d-flex align-items-center justify-content-center"><span class="icon-instagram"></span></a></li>
-                                </ul>
                             </div>
                         </div>
                     </div>
@@ -156,82 +150,8 @@
         </div>
     </div>
 </section>
-<section class="ftco-section testimony-section bg-light">
-    <div class="container">
-            <div class="row justify-content-center mb-5 pb-2">
-                <div class="col-md-8 text-center heading-section ftco-animate">
-                    <span class="subheading">دیدگاه ها</span>
-                    <h2 class="mb-4">بیماران ما درباره ما می گویند</h2>
-                </div>
-            </div>
-        <div class="row ftco-animate justify-content-center">
-            <div class="col-md-12">
-                <div class="carousel-testimony owl-carousel">
-                    <div class="item">
-                        <div class="testimony-wrap d-flex">
-                            <div class="user-img" style="background-image: url(images/person_1.jpg)"></div>
-                            <div class="text pl-4 bg-light">
-                              <span class="quote d-flex align-items-center justify-content-center">
-                              <i class="icon-quote-left"></i>
-                              </span>
-                                <p class="text-right">بهترین دندانپزشک تبریز بدون شک ایشون هستن مخصوصا تو جراحی و ایمپلنت واقعا استادن افتخار شهرمون</p>
-                                <p class="name text-right">آرش نریمانی</p>
-                                <span class="position text-right">برنامه نویس</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="testimony-wrap d-flex">
-                            <div class="user-img" style="background-image: url(images/person_1.jpg)"></div>
-                            <div class="text pl-4 bg-light">
-                              <span class="quote d-flex align-items-center justify-content-center">
-                              <i class="icon-quote-left"></i>
-                              </span>
-                                <p class="text-right">دکتر با ادب وبا اخلاق و حرفه‌ای خسته نباشند افتخار تبریز</p>
-                                <p class="name text-right">آرش نریمانی</p>
-                                <span class="position text-right">برنامه نویس</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="testimony-wrap d-flex">
-                            <div class="user-img" style="background-image: url(images/person_1.jpg)"></div>
-                            <div class="text pl-4 bg-light">
-                              <span class="quote d-flex align-items-center justify-content-center">
-                              <i class="icon-quote-left"></i>
-                              </span>
-                                <p class="text-right">جراحي دندان عقل و روكش دندان انجام دادم بي شك بهترين تبريز هستن</p>
-                                <p class="name text-right">آرش نریمانی</p>
-                                <span class="position text-right">برنامه نویس</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="testimony-wrap d-flex">
-                            <div class="user-img" style="background-image: url(images/person_1.jpg)"></div>
-                            <div class="text pl-4 bg-light">
-                              <span class="quote d-flex align-items-center justify-content-center">
-                              <i class="icon-quote-left"></i>
-                              </span>
-                                <p class="text-right">دکتر مهربون و کاربلدی هستن من 4 واحد ایمپلنت انجام دادم خیلی هم راضیم در یک کلام جراح پنجه طلاست</p>
-                                <p class="name text-right">آرش نریمانی</p>
-                                <span class="position text-right">برنامه نویس</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
 <section class="ftco-section bg-light">
     <div class="container">
-        <div class="row justify-content-center mb-5 pb-2">
-            <div class="col-md-8 text-center heading-section ftco-animate">
-                <span class="subheading">مقالات</span>
-                <h2 class="mb-4">مقالات اخیر</h2>
-            </div>
-        </div>
         <div class="row">
             @foreach($blog as $key => $value)
                 <div class="col-md-4 ftco-animate">

@@ -19,6 +19,7 @@ class FrontController extends Controller
             'slider'    => Slider::orderByDesc('created_at')->get(),
             'blog'      => Blog::with('comments')->orderByDesc('created_at')->take('3')->get(),
             'service'   => Setting::query()->where(['key' => 'service'])->get(),
+            'services'  => Setting::query()->where(['key' => 'service'])->take('3')->get(),
             'personal'   => Setting::query()->where(['key' => 'personal'])->get(),
         ]);
     }
