@@ -9,6 +9,7 @@ use App\Http\Controllers\admin\SettingController;
 use App\Http\Controllers\FrontController;
 use App\Http\Controllers\admin\sliderController;
 use App\Http\Controllers\admin\CommentController;
+use App\Http\Controllers\admin\NobatController;
 
 /*
 |--------------------------------------------------------------------------
@@ -34,6 +35,8 @@ use App\Http\Controllers\admin\CommentController;
         Route::get('/dashboard', function () {
             return view('layouts.admin_master');
         })->middleware(['auth', 'verified'])->name('dashboard');
+
+        Route::resource('nobat',NobatController::class)->except(['show']);
 
         // ------- CRUD -------
         Route::resource('categories',CategoryController::class)->except(['show']);

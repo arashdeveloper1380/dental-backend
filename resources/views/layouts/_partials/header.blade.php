@@ -36,6 +36,17 @@
                 <a class="nav-link" href="{{ url('dashboard') }}"><i class="icon-speedometer"></i> داشبورد</a>
             </li>
             <li class="nav-item nav-dropdown">
+                <a class="nav-link nav-dropdown-toggle" href="#"><i class="icon-puzzle"></i>مدریت وقت ها</a>
+                <ul class="nav-dropdown-items">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('nobat.index') }}"><i class="icon-puzzle"></i>لیست وقت ها</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('nobat.create') }}"><i class="icon-puzzle"></i>ایجاد وقت</a>
+                    </li>
+                </ul>
+            </li>
+            <li class="nav-item nav-dropdown">
                 <a class="nav-link nav-dropdown-toggle" href="#"><i class="icon-puzzle"></i>مدریت دسته بندی ها</a>
                 <ul class="nav-dropdown-items">
                     <li class="nav-item">
