@@ -63,4 +63,35 @@ class SettingController extends Controller
             'contact' => Setting::query()->where(['key' => 'contact'])->get(),
         ]);
     }
+
+    public function serviceIndex(){
+        return view('admin.service.index',[
+            'service' => Setting::query()->where(['key' => 'service'])->get()
+        ]);
+    }
+
+    public function serviceCreate(){
+        return view('admin.service.create');
+    }
+
+    public function serviceStore(Request $request){
+        Setting::create([
+            'key'   => 'service',
+            'value' => [
+                $request->get('name'),
+                $request->get('desc'),
+                $request->get('icon'),
+            ],
+        ]);
+        return redirect()->route('service.index')->with('success','خدمات شما با موفقیت ایجاد شد');
+    }
+
+    public function serviceDestroy($id){
+        Setting::query()->where(['key' => 'service','id' => $id])->delete();
+        return redirect()->route('service.index')->with('success','خدمات شما با موفقیت حذف شد');
+    }
+
+    public function personalIndex(){
+
+    }
 }

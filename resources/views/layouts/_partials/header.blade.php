@@ -11,6 +11,7 @@
     <link href="{{ asset('admin/css/font-awesome.min.css') }}" rel="stylesheet">
     <link href="{{ asset('admin/css/simple-line-icons.css') }}" rel="stylesheet">
     <link href="{{ asset('admin/dest/style.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="{{ asset('front/css/flaticon.css') }}">
     @yield('header')
 </head>
 <body class="navbar-fixed sidebar-nav fixed-nav">
@@ -79,10 +80,32 @@
                 </ul>
             </li>
             <li class="nav-item nav-dropdown">
+                <a class="nav-link nav-dropdown-toggle" href="#"><i class="icon-puzzle"></i>مدریت خدمات</a>
+                <ul class="nav-dropdown-items">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('service.index') }}"><i class="icon-puzzle"></i>لیست خدمات ها</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('service.create') }}"><i class="icon-puzzle"></i>ایجاد خدمات</a>
+                    </li>
+                </ul>
+            </li>
+            <li class="nav-item nav-dropdown">
                 <a class="nav-link" href="{{ route('comment.index') }}"><i class="icon-puzzle"></i>مدریت کامنت ها</a>
             </li>
             <li class="nav-item nav-dropdown">
                 <a class="nav-link" href="{{ route('messages') }}"><i class="icon-puzzle"></i>پیام های دریافتی</a>
+            </li>
+            <li class="nav-item nav-dropdown">
+                <a class="nav-link nav-dropdown-toggle" href="#"><i class="icon-puzzle"></i>کارکنان</a>
+                <ul class="nav-dropdown-items">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url('edit-about/about') }}"><i class="icon-puzzle"></i>لیست کارکنان</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url('edit-info/info') }}"><i class="icon-puzzle"></i>ایجاد کارمند</a>
+                    </li>
+                </ul>
             </li>
             <li class="nav-item nav-dropdown">
                 <a class="nav-link nav-dropdown-toggle" href="#"><i class="icon-puzzle"></i>تنظیمات</a>

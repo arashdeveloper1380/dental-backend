@@ -95,50 +95,19 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-md-3 d-flex services align-self-stretch p-4 ftco-animate" style="display: block !important;">
-                <div class="media block-6 d-block text-center">
-                    <div class="icon d-flex justify-content-center align-items-center">
-                        <span class="flaticon-drilling"></span>
-                    </div>
-                    <div class="media-body p-2 mt-3">
-                        <h3 class="heading">پروتز و ایمپلنت</h3>
-                        <p>ایمپلنت، کاشت دندان در استخوان انواع پروتزهای ثابت و متحرک دندانی </p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-3 d-flex services align-self-stretch p-4 ftco-animate" style="display: block !important;">
-                <div class="media block-6 d-block text-center">
-                    <div class="icon d-flex justify-content-center align-items-center">
-                        <span class="flaticon-tooth"></span>
-                    </div>
-                    <div class="media-body p-2 mt-3">
-                        <h3 class="heading">درمان ریشه</h3>
-                        <p>کلیه درمان های ریشه و عصب دندان با دستگاه روتاری</p>
+            @foreach($service as $value)
+                <div class="col-md-3 d-flex services align-self-stretch p-4 ftco-animate" style="display: block !important;">
+                    <div class="media block-6 d-block text-center">
+                        <div class="icon d-flex justify-content-center align-items-center">
+                            <span class="flaticon-{{ $value->value[2] }}"></span>
+                        </div>
+                        <div class="media-body p-2 mt-3">
+                            <h3 class="heading">{{ $value->value[0] }}</h3>
+                            <p>{{ $value->value[1] }}</p>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-md-3 d-flex services align-self-stretch p-4 ftco-animate" style="display: block !important;">
-                <div class="media block-6 d-block text-center">
-                    <div class="icon d-flex justify-content-center align-items-center">
-                        <span class="flaticon-dental-floss"></span>
-                    </div>
-                    <div class="media-body p-2 mt-3">
-                        <h3 class="heading">دندانپزشکی اطفال</h3>
-                        <p>درمان انواع مشکلات دندانهای کودکان</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-3 d-flex services align-self-stretch p-4 ftco-animate" style="display: block !important;">
-                <div class="media block-6 d-block text-center">
-                    <div class="icon d-flex justify-content-center align-items-center">
-                        <span class="flaticon-shiny-tooth"></span>
-                    </div>
-                    <div class="media-body p-2 mt-3">
-                        <h3 class="heading">روکش های دندانی</h3>
-                        <p>روکش های زیبایی بدون فلز تمام سرامیک و زیرکونیا</p>
-                    </div>
-                </div>
-            </div>
+            @endforeach
         </div>
     </div>
 </section>
