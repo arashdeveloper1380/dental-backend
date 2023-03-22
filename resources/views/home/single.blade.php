@@ -1,4 +1,10 @@
-@include('home._partials.header')
+@extends('home._partials.header')
+
+@section('title') {{ $blog->title }} @endsection
+@section('keywords') <meta name="keywords" content="{{ $blog->meta_keywords }}"/> @endsection
+@section('desc') <meta name="description" content="{{ $blog->meta_desc }}"/> @endsection
+
+@section('content')
 <section class="hero-wrap hero-wrap-2" style="background-image: url('{{ asset('front/images/bg_1.jpg') }}');" data-stellar-background-ratio="0.5">
     <div class="overlay"></div>
     <div class="container">
@@ -123,4 +129,4 @@
         </div>
     </div>
 </section>
-@include('home._partials.footer')
+@endsection

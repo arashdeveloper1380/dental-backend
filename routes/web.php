@@ -67,7 +67,7 @@ use App\Http\Controllers\admin\CommentController;
         Route::get('personal-index',[SettingController::class,'personalIndex'])->name('personal.index');
         Route::get('personal-create',[SettingController::class,'personalCreate'])->name('personal.create');
         Route::post('personal-store',[SettingController::class,'personalStore'])->name('personal.store');
-
+        Route::delete('personal-destroy/{id}',[SettingController::class,'personalDestroy'])->name('personal.destroy');
 
     //    Route::middleware('auth')->group(function () {
     //        Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

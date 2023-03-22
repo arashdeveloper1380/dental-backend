@@ -92,6 +92,34 @@ class SettingController extends Controller
     }
 
     public function personalIndex(){
+        return view('admin.personal.index',[
+            'personal' => Setting::query()->where(['key' => 'personal'])->get()
+        ]);
+    }
+
+    public function personalCreate(){
+        return view('admin.personal.create');
+    }
+
+    public function personalStore(Request $request){
+        Setting::create([
+            'key'   => 'personal',
+            'value' => [
+                $request->get('name'),
+                $this->file_upload($request,'image','images'),
+                $request->get('shogl')
+            ],
+        ]);
+        return redirect()->route('personal.index')->with('success','کارمند با موفقیت ثبت شد');
+    }
+
+    public function personalDestroy($id){
+        $setting = Setting::query()->where('id',$id)->first();
+        if($setting->value[1] != null){
+            File::delete('uploads/images'. '/' . $setting->value[1]);
+        }
+        $setting->delete();
+        return redirect()->route('personal.index')->with('success','کارمند با موفقیت حذف شد');
 
     }
 }

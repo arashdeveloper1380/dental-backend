@@ -100,10 +100,10 @@
                 <a class="nav-link nav-dropdown-toggle" href="#"><i class="icon-puzzle"></i>کارکنان</a>
                 <ul class="nav-dropdown-items">
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ url('edit-about/about') }}"><i class="icon-puzzle"></i>لیست کارکنان</a>
+                        <a class="nav-link" href="{{ route('personal.index') }}"><i class="icon-puzzle"></i>لیست کارکنان</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ url('edit-info/info') }}"><i class="icon-puzzle"></i>ایجاد کارمند</a>
+                        <a class="nav-link" href="{{ route('personal.create') }}"><i class="icon-puzzle"></i>ایجاد کارمند</a>
                     </li>
                 </ul>
             </li>

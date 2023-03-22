@@ -1,5 +1,8 @@
-@include('home._partials.header')
+@extends('home._partials.header')
 
+@section('title') گالری دکتر پیمان عباس نژاد @endsection
+
+@section('content')
 <section class="hero-wrap hero-wrap-2" dir="rtl" style="background-image: url('{{ asset('front/images/bg_1.jpg') }}');" data-stellar-background-ratio="0.5">
     <div class="overlay"></div>
     <div class="container">
@@ -30,5 +33,4 @@
         {{ $gallery->links() }}
     </div>
 </section>
-
-@include('home._partials.footer')
+@endsection

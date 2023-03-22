@@ -1,5 +1,8 @@
-@include('home._partials.header')
+@extends('home._partials.header')
 
+@section('title') درباره دکتر پیمان عباس نژاد @endsection
+
+@section('content')
     <section class="hero-wrap hero-wrap-2" style="background-image: url('{{ asset('front/images/bg_1.jpg') }}');" data-stellar-background-ratio="0.5">
         <div class="overlay"></div>
         <div class="container">
@@ -11,9 +14,7 @@
             </div>
         </div>
     </section>
-
-@include('home._partials.about',['about'])
-
+    @include('home._partials.about',['about'])
     <section class="ftco-section testimony-section bg-light">
         <div class="container">
             <div class="row justify-content-center mb-5 pb-2">
@@ -82,5 +83,4 @@
             </div>
         </div>
     </section>
-
-@include('home._partials.footer')
+@endsection
