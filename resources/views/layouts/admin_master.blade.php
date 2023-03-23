@@ -13,8 +13,8 @@
                         <th style="text-align: center" scope="col">#</th>
                         <th style="text-align: center" scope="col">نام</th>
                         <th style="text-align: center" scope="col">موبایل</th>
-                        <th style="text-align: center" scope="col">تاریخ</th>
-                        <th style="text-align: center" scope="col">ساعت</th>
+                        <th style="text-align: center" scope="col">تاریخ مراجعه</th>
+                        <th style="text-align: center" scope="col">ساعت مراجعه</th>
                         <th style="text-align: center" scope="col">مدریت</th>
                     </tr>
                     </thead>
