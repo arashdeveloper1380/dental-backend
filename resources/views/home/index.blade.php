@@ -20,74 +20,6 @@
 </section>
 
 @include('home._partials.about',['about'])
-
-<section class="ftco-section ftco-no-pt ftco-no-pb">
-    <div class="container-fluid px-md-0">
-        <div class="row no-gutters">
-            <div class="col-md-3 d-flex align-items-stretch">
-                <div class="consultation w-100 text-center px-4 px-md-5">
-                    <h3 class="mb-4">خدمات</h3>
-                    @foreach($services as $value)
-                    <p>{{ $value->value[0]}}</p>
-                    @endforeach
-                </div>
-            </div>
-            <div class="col-md-6 d-flex align-items-stretch">
-                <div class="consultation consul w-100 px-4 px-md-5">
-                    <div class="text-center">
-                        <h3 class="mb-4">نوبت گیری</h3>
-                    </div>
-                    <form action="#" class="appointment-form">
-                        <div class="row">
-                            <div class="col-md-12 col-lg-6 col-xl-4">
-                                <div class="form-group">
-                                    <input type="text" class="form-control text-right" placeholder="نام و نام خانوادگی">
-                                </div>
-                            </div>
-                            <div class="col-md-12 col-lg-6 col-xl-4">
-                                <div class="form-group">
-                                    <input type="text" class="form-control text-right" placeholder="شماره موبایل">
-                                </div>
-                            </div>
-                            <div class="col-md-12 col-lg-6 col-xl-4">
-                                <div class="form-group">
-                                    <input type="text" class="form-control text-right" placeholder="کد ملی">
-                                </div>
-                            </div>
-                            <div class="col-md-12 col-lg-6 col-xl-4">
-                                <div class="form-group">
-                                    <div class="input-wrap">
-                                        <div class="icon"><span class="ion-md-calendar"></span></div>
-                                        <input type="text" class="form-control appointment_date" placeholder="Date">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-12 col-lg-6 col-xl-4">
-                                <div class="form-group">
-                                    <div class="input-wrap">
-                                        <div class="icon"><span class="ion-ios-clock"></span></div>
-                                        <input type="text" class="form-control appointment_time" placeholder="Time">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-12 col-lg-6 col-xl-4">
-                                <div class="form-group">
-                                    <input type="submit" value="ثبت نوبت" class="btn btn-secondary py-2 px-4">
-                                </div>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
-            <div class="col-md-3 d-flex align-items-stretch">
-                <div class="consultation w-100 text-center px-4 px-md-5 nobat-right">
-                    <h3 class="mb-4">سوابق تحصیلی </h3>
-                    <p>{{ $about[9] }}</p>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
 <section class="ftco-section ftco-services">
     <div class="container">
         <div class="row justify-content-center mb-5 pb-2">
@@ -150,8 +82,14 @@
         </div>
     </div>
 </section>
-<section class="ftco-section bg-light">
+<section class="bg-light" style="padding: 4em 0; position: relative;">
     <div class="container">
+        <div class="row justify-content-center mb-5 pb-2">
+            <div class="col-md-8 text-center heading-section ftco-animate">
+                <span class="subheading">مقالات</span>
+                <h2 class="mb-4">مقالات اخیر</h2>
+            </div>
+        </div>
         <div class="row">
             @foreach($blog as $key => $value)
                 <div class="col-md-4 ftco-animate">

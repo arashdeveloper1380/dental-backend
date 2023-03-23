@@ -3,8 +3,8 @@
         <div class="row mb-5">
             <div class="col-md">
                 <div class="ftco-footer-widget mb-5">
-                    <h2 class="ftco-heading-2 logo">دکتر پیمان عباس نژاد</h2>
-                    <p class="text-justify">دکترای دندان پزشکی و جراح فوق تخصصی در تبریز دکترای حرفه ای دندانپزشکی دکترای حرفه ای دندانپزشکی دکترای حرفه ای دندانپزشکی</p>
+                    <h2 class="ftco-heading-2 logo">{{ $about[5] }}</h2>
+                    <p class="text-justify">{{ $about[1] }}</p>
                 </div>
                 <div class="ftco-footer-widget mb-5">
                     <h2 class="ftco-heading-2">ارتباط با ما</h2>

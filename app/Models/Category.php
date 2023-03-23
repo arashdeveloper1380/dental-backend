@@ -14,6 +14,6 @@ class Category extends Model
     protected $fillable = ['name','name_en','meta_desc','meta_keywords'];
 
     public function blog(){
-        return $this->hasMany(Blog::class);
+        return $this->hasMany(Blog::class,'category_id');
     }
 }

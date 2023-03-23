@@ -1,0 +1,5 @@
+@font-face{font-family:shabnam;src:url("../fonts/shbnam.woff") format("woff")}
+body{
+    font-family:shabnam !important;
+}
+

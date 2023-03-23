@@ -39,7 +39,7 @@
                 </form>
             </div>
             <div class="col-md-6 d-flex align-items-stretch">
-                <div id="map"></div>
+                <div id="map" style="opacity: 0"></div>
             </div>
         </div>
     </div>

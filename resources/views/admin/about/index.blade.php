@@ -60,7 +60,7 @@
                     <h4>بخش سئو</h4>
                     <div style="border: 1px dashed #ccc; padding: 10px">
                         <div class="form-group">
-                            <label for="meta_desc">توضیحات دسته</label>
+                            <label for="meta_desc">توضیحات سئو</label>
                             <input type="text" name="meta_desc" value="@isset($about[3]) {{ $about[3] }} @endisset" class="form-control" placeholder="توضیحات دسته را وارد کنید...">
                             @error('meta_desc')
                             <div class="alert alert-danger">{{ $message }}</div>

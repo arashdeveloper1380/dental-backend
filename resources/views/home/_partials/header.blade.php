@@ -15,15 +15,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="{{ asset('front/css/open-iconic-bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ asset('front/css/animate.css') }}">
-    @if(Request::is('/') || \Illuminate\Support\Facades\Route::name('about'))
-        <link rel="stylesheet" href="{{ asset('front/css/owl.carousel.min.css') }}">
-        <link rel="stylesheet" href="{{ asset('front/css/owl.theme.default.min.css') }}">
-    @endif
+    <link rel="stylesheet" href="{{ asset('front/css/owl.carousel.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('front/css/owl.theme.default.min.css') }}">
     <link rel="stylesheet" href="{{ asset('front/css/aos.css') }}">
     <link rel="stylesheet" href="{{ asset('front/css/ionicons.min.css') }}">
     <link rel="stylesheet" href="{{ asset('front/css/flaticon.css') }}">
     <link rel="stylesheet" href="{{ asset('front/css/icomoon.css') }}">
     <link rel="stylesheet" href="{{ asset('front/css/style.css') }}">
+    @yield('header')
 </head>
 <body>
 <div class="py-md-5 py-4 border-bottom" dir="rtl">
@@ -60,6 +59,16 @@
                 <li class="nav-item"><a href="{{ route('blogs') }}" class="nav-link">اخبار</a></li>
                 <li class="nav-item"><a href="{{ route('contact') }}" class="nav-link">تماس با ما</a></li>
                 <li class="nav-item"><a href="insta.sarzaminmelk.com" class="nav-link">اینستا</a></li>
+                @if(\Illuminate\Support\Facades\Auth::check())
+                    <li class="nav-item"><a href="{{ route('panel') }}" class="nav-link" style="color: green;font-size: 18px">پنل کاربری</a></li>
+                    <form action="{{ route('logout') }}" method="post" style="display: flex">
+                        @csrf
+                        <input type="submit" style="color: crimson" class="btn" value="خروج">
+                    </form>
+                @else
+                    <li class="nav-item"><a href="{{ route('panel.login') }}" class="nav-link">ورود</a></li>
+                    <li class="nav-item"><a href="{{ route('panel.register') }}" class="nav-link">ثبت نام</a></li>
+                @endif
             </ul>
         </div>
     </div>
@@ -72,20 +81,18 @@
         <div class="row mb-5">
             <div class="col-md">
                 <div class="ftco-footer-widget mb-5">
-                    <h2 class="ftco-heading-2 logo">دکتر پیمان عباس نژاد</h2>
-                    <p class="text-justify">دکترای دندان پزشکی و جراح فوق تخصصی در تبریز دکترای حرفه ای دندانپزشکی دکترای حرفه ای دندانپزشکی دکترای حرفه ای دندانپزشکی</p>
+                    <h2 class="ftco-heading-2 logo">{{ $about[5] }}</h2>
+                    <p class="text-justify">{!! strip_tags(Str::limit($about[1], 197)) !!} <a href="{{ route('about') }}" style="border: 1px dashed #ccc; padding: 5px">بیشتر</a></p>
                 </div>
                 <div class="ftco-footer-widget mb-5">
                     <h2 class="ftco-heading-2">ارتباط با ما</h2>
                     <div class="block-23 mb-3">
                         <ul>
-                            <li><span class="icon icon-map-marker"></span><span class="text">تبریز, ولیعصر, فلکه معلم(بارنج) نبش ابن سینا, برج ارم, طبقه6, واحد ب</span></li>
-                            <li><a href="tel:04133697921"><span class="icon icon-phone"></span><span class="text">041-33697921</span></a></li>
+                            <li><span class="icon icon-map-marker"></span><span class="text">{{ $info[1] }}</span></li>
+                            <li><a href="tel:04133697921"><span class="icon icon-phone"></span><span class="text">{{ $info[0] }}</span></a></li>
                         </ul>
                     </div>
                     <ul class="ftco-footer-social list-unstyled float-md-left float-lft mt-3">
-                        <li class="ftco-animate"><a href="#"><span class="icon-twitter"></span></a></li>
-                        <li class="ftco-animate"><a href="#"><span class="icon-facebook"></span></a></li>
                         <li class="ftco-animate"><a href="#"><span class="icon-instagram"></span></a></li>
                     </ul>
                 </div>
@@ -94,36 +101,37 @@
                 <div class="ftco-footer-widget mb-5 ml-md-4">
                     <h2 class="ftco-heading-2 text-center footer-text">دسترسی سریع</h2>
                     <ul class="list-unstyled">
-                        <li><a href="#">خانه</a></li>
-                        <li><a href="#">درباره ما</a></li>
-                        <li><a href="#">معرفی دکتر</a></li>
-                        <li><a href="#">اخبار</a></li>
-                        <li><a href="#">تماس با ما</a></li>
+                        <li><a href="{{ route('front.index') }}">خانه</a></li>
+                        <li><a href="{{ route('about') }}">درباره ما</a></li>
+                        <li><a href="{{ route('galleries') }}">گالری</a></li>
+                        <li><a href="{{ route('blogs') }}">اخبار</a></li>
+                        <li><a href="{{ route('contact') }}">تماس با ما</a></li>
+                        <li><a href="insta.sarzaminmelk.com">اینستا</a></li>
                     </ul>
                 </div>
                 <div class="ftco-footer-widget mb-5 ml-md-4">
                     <h2 class="ftco-heading-2 text-center footer-text">خدمات ما</h2>
                     <ul class="list-unstyled">
-                        <li><a href="#">روکش های دندانی</a></li>
-                        <li><a href="#">دندانپزشکی اطفال</a></li>
-                        <li><a href="#">پروتز و ایمپلنت</a></li>
+                        @foreach(\App\Models\Setting::query()->where(['key' => 'service'])->take('3')->get() as $value)
+                            <li><a href="#">{{ $value->value[0] }}</a></li>
+                        @endforeach
                     </ul>
                 </div>
             </div>
             <div class="col-md">
                 <div class="ftco-footer-widget mb-5">
                     <h2 class="ftco-heading-2">تایم کاری</h2>
-                    <h3 class="open-hours pl-4"><span class="ion-ios-time mr-3"></span>از روز شنبه تا چهار شنبه</h3>
+                    <h3 class="open-hours pl-4"><span class="ion-ios-time mr-3"></span>{{ $info[3] }}</h3>
                 </div>
                 <div class="ftco-footer-widget mb-5 img-dr">
-                    <img src="{{ asset('front/images/doc-8.jpg') }}" alt="" width="70%">
+                    <img src="{{ asset('uploads/images') . '/' . $info[2]}}" alt="" width="70%">
                 </div>
             </div>
         </div>
         <div class="row">
             <div class="col-md-12 text-center">
                 <p>
-                    <script data-cfasync="false" src="../../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>document.write(new Date().getFullYear());</script> - طراحی و پیاده سازی توسط <a href="tel:09030613817" target="_blank">آرش نریمانی</a>
+                    طراحی و پیاده سازی توسط <a href="tel:09030613817" target="_blank">آرش نریمانی</a>
                 </p>
             </div>
         </div>
@@ -140,15 +148,11 @@
 <script src="{{ asset('front/js/bootstrap.min.js') }}"></script>
 <script src="{{ asset('front/js/jquery.waypoints.min.js') }}"></script>
 <script src="{{ asset('front/js/jquery.stellar.min.js') }}"></script>
-@if(Request::is('/') || \Illuminate\Support\Facades\Route::name('about'))
-    <script src="{{ asset('front/js/owl.carousel.min.js') }}"></script>
-@endif
+<script src="{{ asset('front/js/owl.carousel.min.js') }}"></script>
 <script src="{{ asset('front/js/aos.js') }}"></script>
 <script src="{{ asset('front/js/scrollax.min.js') }}"></script>
-@if(\Illuminate\Support\Facades\Route::name('contact'))
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&amp;sensor=false"></script>
-    <script src="{{ asset('front/js/google-map.js') }}"></script>
-@endif
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&amp;sensor=false"></script>
+<script src="{{ asset('front/js/google-map.js') }}"></script>
 <script src="{{ asset('front/js/main.js') }}"></script>
 </body>
 </html>

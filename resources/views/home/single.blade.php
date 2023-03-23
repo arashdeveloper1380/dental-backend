@@ -1,8 +1,8 @@
 @extends('home._partials.header')
 
 @section('title') {{ $blog->title }} @endsection
-@section('keywords') <meta name="keywords" content="{{ $blog->meta_keywords }}"/> @endsection
 @section('desc') <meta name="description" content="{{ $blog->meta_desc }}"/> @endsection
+@section('keywords') <meta name="keywords" content="{{ $blog->meta_keywords }}"/> @endsection
 
 @section('content')
 <section class="hero-wrap hero-wrap-2" style="background-image: url('{{ asset('front/images/bg_1.jpg') }}');" data-stellar-background-ratio="0.5">
@@ -29,7 +29,7 @@
                 </p>
                 <div class="tag-widget post-tag-container mb-5 mt-5">
                     <div class="tagcloud">
-                        دسته بندی :<a href="#" class="tag-cloud-link">{{ $blog->category->name }}</a>
+                        دسته بندی :<a href="{{ route('category.blog',$blog->category->name_en ) }}" class="tag-cloud-link">{{ $blog->category->name }}</a>
                     </div>
                 </div>
                 <div class="about-author d-flex p-4 bg-light">
@@ -38,7 +38,7 @@
                     </div>
                     <div class="desc" style="margin-right: 30px">
                         <h3>{{ $about[5] }}</h3>
-                        <p>{!! strip_tags(Str::limit($about[1], 230)) !!}</p>
+                        <p>{!! strip_tags(Str::limit($about[1], 230)) !!} <a href="{{ route('about') }}" style="border: 1px dashed #ccc; padding: 5px">بیشتر</a></p>
                     </div>
                 </div>
                 <div class="pt-5 mt-5">
@@ -98,19 +98,11 @@
                 </div>
             </div>
             <div class="col-lg-4 sidebar ftco-animate">
-                <div class="sidebar-box">
-                    <form action="#" class="search-form">
-                        <div class="form-group">
-                            <span class="icon icon-search"></span>
-                            <input type="text" class="form-control" placeholder="جستوجو کنید...">
-                        </div>
-                    </form>
-                </div>
                 <div class="sidebar-box ftco-animate">
                     <h3 class="text-right">دسته بندی </h3>
                     <ul class="categories text-right">
                         @foreach($category as $key => $value)
-                            <li><a href="{{ $value->name_en }}">{{ $value->name }}</a></li>
+                            <li><a href="{{ route('category.blog',$value->name_en) }}">{{ $value->name }}</a></li>
                         @endforeach
                     </ul>
                 </div>

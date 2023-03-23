@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\nobatGiri;
 use App\Models\Setting;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
@@ -123,6 +124,10 @@ class SettingController extends Controller
         }
         $setting->delete();
         return redirect()->route('personal.index')->with('success','کارمند با موفقیت حذف شد');
+    }
 
+    public function nobatgiriDestroy($id){
+        nobatGiri::query()->where('id',$id)->delete();
+        return redirect()->route('dashboard')->with('success','کاربر با موفقیت مراجعه گردید.');
     }
 }

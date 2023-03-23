@@ -25,6 +25,19 @@ use App\Http\Controllers\admin\NobatController;
     Route::get('blogs',[FrontController::class,'blogs'])->name('blogs');
     Route::get('contact',[FrontController::class,'contact'])->name('contact');
     Route::post('contact-store',[FrontController::class,'contactStore'])->name('contact.store');
+    Route::get('category-blog/{slug}',[FrontController::class,'categoryBlog'])->name('category.blog');
+
+    Route::get('login-panel',[FrontController::class,'login'])->name('panel.login');
+    Route::post('login-store',[FrontController::class,'loginStore'])->name('login.store');
+    Route::get('register-panel',[FrontController::class,'register'])->name('panel.register');
+    Route::post('register-store',[FrontController::class,'registerStore'])->name('register.store');
+
+    Route::middleware(['auth'])->group(function (){
+        Route::get('panel',[FrontController::class,'panel'])->name('panel');
+        Route::post('nobatgiri',[FrontController::class,'nobatgiri'])->name('nobatgiri');
+        Route::post('logout',[FrontController::class,'logout'])->name('logout');
+    });
+
 
 /*
 |--------------------------------------------------------------------------
@@ -32,9 +45,12 @@ use App\Http\Controllers\admin\NobatController;
 |--------------------------------------------------------------------------
 */
     Route::middleware(['is_admin'])->group(function () {
+
         Route::get('/dashboard', function () {
             return view('layouts.admin_master');
         })->middleware(['auth', 'verified'])->name('dashboard');
+
+        Route::delete('nobatgiri/{id}',[SettingController::class,'nobatgiriDestroy'])->name('nobatgiri.destroy');
 
         Route::resource('nobat',NobatController::class)->except(['show']);
 
@@ -71,12 +87,6 @@ use App\Http\Controllers\admin\NobatController;
         Route::get('personal-create',[SettingController::class,'personalCreate'])->name('personal.create');
         Route::post('personal-store',[SettingController::class,'personalStore'])->name('personal.store');
         Route::delete('personal-destroy/{id}',[SettingController::class,'personalDestroy'])->name('personal.destroy');
-
-    //    Route::middleware('auth')->group(function () {
-    //        Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-    //        Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-    //        Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
-    //    });
     });
 
 

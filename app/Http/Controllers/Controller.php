@@ -41,4 +41,8 @@ class Controller extends BaseController
         return Comment::query()->where(['blog_id' => $blog,'status' => 1])
             ->whereNotNull('name')->count();
     }
+
+//    public function blogByCategory($value){
+//        return
+//    }
 }

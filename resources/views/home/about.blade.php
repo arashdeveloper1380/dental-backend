@@ -1,6 +1,8 @@
 @extends('home._partials.header')
 
-@section('title') درباره دکتر پیمان عباس نژاد @endsection
+@section('title')درباره دکتر پیمان عباس نژاد @endsection
+@section('desc')<meta name="description" content="{{ $about[3] }}"/> @endsection
+@section('keywords')<meta name="keywords" content="{{ $about[4] }}"/> @endsection
 
 @section('content')
     <section class="hero-wrap hero-wrap-2" style="background-image: url('{{ asset('front/images/bg_1.jpg') }}');" data-stellar-background-ratio="0.5">
