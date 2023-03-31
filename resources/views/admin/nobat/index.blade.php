@@ -9,16 +9,15 @@
             <tr>
                 <th style="text-align: center" scope="col">#</th>
                 <th style="text-align: center" scope="col">تاریخ</th>
-                <th style="text-align: center" scope="col">وقت</th>
                 <th style="text-align: center" scope="col">مدریت</th>
             </tr>
         </thead>
         <tbody style="text-align: center">
         @foreach($nobat as $key => $value)
             <tr>
-                <th style="text-align: center" scope="row">{{ $key +1 }}</th>
+                <td style="text-align: center" scope="row">{{ $key +1 }}</td>
                 <td style="text-align: center" width="30%">{{ $value->date }}</td>
-                <td style="text-align: center" width="20%">{{ $value->time }}</td><td>
+                <td>
                     <form style="display: contents;" action="{{ route('nobat.destroy',$value->id) }}" method="POST">
                         @csrf
                         @method('delete')

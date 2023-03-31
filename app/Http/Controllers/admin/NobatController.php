@@ -26,7 +26,20 @@ class NobatController extends Controller
     public function store(Request $request){
         Nobat::create([
             'date'      => $request->get('date'),
-            'time'      => $request->get('time'),
+            'time'      => [
+                'ساعت 9',
+                'ساعت 10',
+                'ساعت 11',
+                'ساعت 12',
+                'ساعت 13',
+                'ساعت 14',
+                'ساعت 15',
+                'ساعت 16',
+                'ساعت 17',
+                'ساعت 18',
+                'ساعت 19',
+                'ساعت 20',
+            ],
             'user_id'   => Auth::user()->id,
         ]);
 

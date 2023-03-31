@@ -9,5 +9,9 @@ class Nobat extends Model
 {
     use HasFactory;
 
+    public $casts = [
+        'time' => 'array'
+    ];
+
     protected $fillable = ['date','time','user_id','description'];
 }

@@ -15,10 +15,6 @@
                     <div class="form-group">
                         <label for="date">تاریخ</label>
                         <input type="text" name="date" id="date" class="form-control" placeholder="تاریخ نوبت را وارد کنید..." required>
-                    </div>
-                    <div class="form-group">
-                        <label for="time">ساعت وقت</label>
-                        <input type="text" name="time" class="form-control" placeholder="مثلا : از ساعت 13 تا 15" required>
                     </div><br>
                     <input type="submit" value="ثبت وقت" class="btn btn-success">
                 </form>
@@ -32,7 +28,7 @@
     <script>
         var customOptions = {
             placeholder: "روز / ماه / سال"
-            , twodigit: false
+            , twodigit: true
             , closeAfterSelect: false
             , nextButtonIcon: "fa fa-arrow-circle-right"
             , previousButtonIcon: "fa fa-arrow-circle-left"

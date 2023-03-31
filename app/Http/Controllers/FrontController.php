@@ -57,10 +57,32 @@ class FrontController extends Controller
 
     public function panel(){
         if(Auth::check()){
+            $nobatgiri = nobatGiri::query()->where(['mobile' => Auth::user()->email])->first();
+            if($nobatgiri != null){
+                $timeSelected = $nobatgiri->nobat_id[1];
+                $nobat = Nobat::query()->select('time')->first()->time;
+
+                if(in_array($timeSelected, $nobat)){
+                    unset($nobat[array_search($timeSelected,$nobat)]);
+                }
+                $arrNoabt = [];
+                foreach ($nobat as $value){
+                    $arrNoabt[] = $value;
+                }
+                Nobat::query()->update([
+                    'time' => $arrNoabt
+                ]);
+            }
+
+            $time = [];
+            foreach(Nobat::all() as $value){
+                $time[] = $value->time;
+            }
             return view('home.panel',[
                 'info'      => Setting::query()->where(['key' => 'info'])->first()->value,
                 'about'     => Setting::query()->where(['key' => 'about'])->first()->value,
                 'nobat'     => Nobat::all(),
+                'time'      => $time,
                 'userExsist'=> nobatGiri::where(['mobile' => Auth::user()->email])->first(),
             ]);
         }
@@ -75,7 +97,6 @@ class FrontController extends Controller
                 $request->get('time'),
             ],
         ]);
-        Nobat::query()->where(['id' => $request->get('id')])->delete();
         return redirect()->back()->with('success','نوبت شما با موفقیت ثبت شد...');
     }
 
