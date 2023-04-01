@@ -81,7 +81,7 @@
 @section('content')
     <div class="containerr">
         <h2 class="login-title">ورود به پنل کاربری</h2>
-
+        @if(session()->has('userNotFound')) <div class="text-center" style="color: crimson">{{ session()->get('userNotFound') }}</div> @endif
         <form action="{{ route('login.store') }}" class="login-form" method="post" >
             @csrf
             <div>

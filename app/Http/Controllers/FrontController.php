@@ -13,6 +13,7 @@ use App\Models\Slider;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Validator;
 
 class FrontController extends Controller
 {
@@ -41,9 +42,14 @@ class FrontController extends Controller
             Auth::login($user);
             return redirect()->route('panel');
         }
+        return redirect()->back()->with('userNotFound','شماره موبایل یا رمز عبور اشتباه است.');
     }
 
     public function registerStore(Request $request){
+        $mobileExsist = User::query()->where(['email' => $request->get('mobile')])->first();
+        if($mobileExsist){
+            return redirect()->back()->with('mobileExsist','موبایل وارد شده قبلا ثبت نام کرده');
+        }
         $user = User::create([
             'name'      => $request->get('name'),
             'email'     => $request->get('mobile'),

@@ -81,7 +81,7 @@
 @section('content')
     <div class="containerr">
         <h2 class="login-title">ورود به پنل کاربری</h2>
-
+        @if(session()->has('mobileExsist')) <div class="text-center" style="color: crimson">{{ session()->get('mobileExsist') }}</div> @endif
         <form class="login-form" action="{{ route('register.store') }}" method="post">
             @csrf
             <div>
