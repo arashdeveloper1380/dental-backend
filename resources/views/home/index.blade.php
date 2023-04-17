@@ -56,6 +56,34 @@
         </div>
     </div>
 </section>
+
+<section class="ftco-section">
+    <div class="container">
+        <div class="row justify-content-center mb-5 pb-2">
+            <div class="col-md-8 text-center heading-section ftco-animate">
+                <h2 class="mb-4">عکس های بعدی و قبلی</h2>
+            </div>
+        </div>
+        <div class="row d-flex justify-content-center align-items-center">
+            <div class="col-lg-6">
+                <div id="before-after-slider">
+                    <div id="before-image">
+                        <img src="{{ asset('front/images/before1.jpg') }}" alt="before"/>
+                    </div>
+
+                    <div id="after-image">
+                        <img src="{{ asset('front/images/after1.jpg') }}" alt="After"/>
+                    </div>
+
+                    <div id="resizer"></div>
+
+                </div>
+                <a href="http://localhost:8000/about" style="border: 1px dashed #ccc; padding: 5px;display: flex;justify-content: center;margin-top: 15px;">موارد بیشتر</a>
+            </div>
+        </div>
+
+    </div>
+</section>
 <section class="ftco-section">
     <div class="container">
         <div class="row justify-content-center mb-5 pb-2">

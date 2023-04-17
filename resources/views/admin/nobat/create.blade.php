@@ -29,7 +29,7 @@
         var customOptions = {
             placeholder: "روز / ماه / سال"
             , twodigit: true
-            , closeAfterSelect: false
+            , closeAfterSelect: true
             , nextButtonIcon: "fa fa-arrow-circle-right"
             , previousButtonIcon: "fa fa-arrow-circle-left"
             , buttonsColor: "blue"

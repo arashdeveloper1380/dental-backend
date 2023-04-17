@@ -14,7 +14,7 @@ class NobatController extends Controller
     public function index(){
         $expireDate = Nobat::query()->where('date', '<' ,Verta::now()->format('Y/m/d'))->delete();
         if($expireDate){
-            return redirect()->route('nobat.index')->with('success','وقت نمی تواند قبل از امروز باشد!');
+            return redirect()->route('nobat.index')->with('success','وقت های قبلی خوکار حذف شدند!');
         }
         return view('admin.nobat.index',['nobat' => Nobat::all()]);
     }
