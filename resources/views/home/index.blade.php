@@ -64,22 +64,44 @@
                 <h2 class="mb-4">عکس های بعدی و قبلی</h2>
             </div>
         </div>
-        <div class="row d-flex justify-content-center align-items-center">
-            <div class="col-lg-6">
-                <div id="before-after-slider">
-                    <div id="before-image">
-                        <img src="{{ asset('front/images/before1.jpg') }}" alt="before"/>
+        <div class="row">
+            <div class="col-lg-3">
+                <div class="ba-slider">
+                    <img src="{{ asset('front/images/doc-3.jpg') }}">
+                    <div class="resize">
+                        <img src="{{ asset('front/images/doc-2.jpg') }}">
                     </div>
-
-                    <div id="after-image">
-                        <img src="{{ asset('front/images/after1.jpg') }}" alt="After"/>
-                    </div>
-
-                    <div id="resizer"></div>
-
+                    <span class="handle"></span>
                 </div>
-                <a href="http://localhost:8000/about" style="border: 1px dashed #ccc; padding: 5px;display: flex;justify-content: center;margin-top: 15px;">موارد بیشتر</a>
             </div>
+            <div class="col-lg-3">
+                <div class="ba-slider">
+                    <img src="{{ asset('front/images/doc-6.jpg') }}">
+                    <div class="resize">
+                        <img src="{{ asset('front/images/doc-7.jpg') }}">
+                    </div>
+                    <span class="handle"></span>
+                </div>
+            </div>
+            <div class="col-lg-3">
+                <div class="ba-slider">
+                    <img src="{{ asset('front/images/doc-6.jpg') }}">
+                    <div class="resize">
+                        <img src="{{ asset('front/images/doc-7.jpg') }}">
+                    </div>
+                    <span class="handle"></span>
+                </div>
+            </div>
+            <div class="col-lg-3">
+                <div class="ba-slider">
+                    <img src="{{ asset('front/images/doc-6.jpg') }}">
+                    <div class="resize">
+                        <img src="{{ asset('front/images/doc-7.jpg') }}">
+                    </div>
+                    <span class="handle"></span>
+                </div>
+            </div>
+            <a href="http://localhost:8000/about" style="border: 1px dashed #ccc;padding: 5px;margin-top: 15px;margin: auto;margin-top: 20px;">موارد بیشتر</a>
         </div>
 
     </div>

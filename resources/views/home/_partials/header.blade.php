@@ -22,7 +22,7 @@
     <link rel="stylesheet" href="{{ asset('front/css/flaticon.css') }}">
     <link rel="stylesheet" href="{{ asset('front/css/icomoon.css') }}">
     <link rel="stylesheet" href="{{ asset('front/css/style.css') }}">
-    <link rel="stylesheet" href="{{ asset('front/css/after-before.css') }}">
+    <link rel="stylesheet" href="{{ asset('front/css/before-after.min.css') }}">
     @yield('header')
 </head>
 <body>
@@ -155,9 +155,10 @@
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&amp;sensor=false"></script>
 <script src="{{ asset('front/js/google-map.js') }}"></script>
 <script src="{{ asset('front/js/main.js') }}"></script>
-<script src="{{ asset('front/js/beforeAfter.js') }}"></script>
-<script src="{{ asset('front/js/beforeAfter2.js') }}"></script>
-<script src="{{ asset('front/js/beforeAfter3.js') }}"></script>
+<script src="{{ asset('front/js/before-after.min.js') }}"></script>
+<script>
+    $('.ba-slider').beforeAfter();
+</script>
 @yield('script')
 </body>
 </html>
