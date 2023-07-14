@@ -30,6 +30,7 @@
             border-radius: 20px;
             width: 200px;
             margin: 0 auto;
+            color: #fff;
         }
     </style>
 </head>
@@ -46,14 +47,14 @@
         <div class="row no-gutters d-flex align-items-start align-items-center px-3 px-md-0" style="justify-content: space-between;">
             <div class="col-md-4 order-md-1 d-flex topper mb-md-0 mb-2 align-items-center text-md-right">
                 <div class="pr-md-4 pl-md-0 text-right pl-3 text">
-                    <p class="con"><a href="tel:04133697921"><span>شماره تماس : </span> <span>{{ $info[0] }}</span></a></p>
-                    <p class="con address">{{ $info[1] }}</p>
+                    <p class="con"><a href="tel:04133697921"><span style="color: #ccc">شماره تماس : </span> <span style="color: #fff">{{ $info[0] }}</span></a></p>
+                    <p class="con address" style="color: #fff">{{ $info[1] }}</p>
                 </div>
             </div>
             <div class="col-md-4 order-md-3 d-flex topper mb-md-0 align-items-center">
                 <div class="text text-right pl-3 pl-md-3">
-                    <p class="hr"><span>ساعات کار</span></p>
-                    <p class="time address"><span>{{ $info[3] }}</p>
+                    <p class="hr"><span style="color: #ccc">ساعات کار</span></p>
+                    <p class="time address"><span style="color: #fff">{{ $info[3] }}</p>
                 </div>
             </div>
         </div>
