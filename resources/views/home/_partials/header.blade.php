@@ -24,14 +24,26 @@
     <link rel="stylesheet" href="{{ asset('front/css/style.css') }}">
     <link rel="stylesheet" href="{{ asset('front/css/before-after.min.css') }}">
     @yield('header')
+    <style>
+        .info-header-logo{
+            border: 1px solid #ccc;
+            border-radius: 20px;
+            width: 200px;
+            margin: 0 auto;
+        }
+    </style>
 </head>
 <body>
-<div class="py-md-5 py-4 border-bottom" dir="rtl">
+<div class="py-md-5 py-4 border-bottom" style="background-color: #008e80;" dir="rtl">
     <div class="container">
         <div class="row no-gutters d-flex align-items-start align-items-center px-3 px-md-0">
-            <div class="col-md-4 order-md-2 mb-2 mb-md-0 align-items-center text-center">
-                <a class="navbar-brand" href="{{ route('front.index') }}">دکتر عباس نژاد</a>
+            <div class="col-md-4 order-md-2 mb-2 mb-md-0 align-items-center text-center" style="margin: auto">
+                <img src="{{ asset('front/images/logo.webp') }}" width="100" alt="دکتر پیمان عباس نژاد">
+                <a class="navbar-brand" href="{{ route('front.index') }}" style="vertical-align: middle">دکتر عباس نژاد</a>
+                <p class="info-header-logo">اینپلنت - ارتودنسی - زیبایی</p>
             </div>
+        </div>
+        <div class="row no-gutters d-flex align-items-start align-items-center px-3 px-md-0" style="justify-content: space-between;">
             <div class="col-md-4 order-md-1 d-flex topper mb-md-0 mb-2 align-items-center text-md-right">
                 <div class="pr-md-4 pl-md-0 text-right pl-3 text">
                     <p class="con"><a href="tel:04133697921"><span>شماره تماس : </span> <span>{{ $info[0] }}</span></a></p>
@@ -58,7 +70,7 @@
                 <li class="nav-item"><a href="{{ route('about') }}" class="nav-link">درباره ما</a></li>
                 <li class="nav-item"><a href="{{ route('galleries') }}" class="nav-link">گالری</a></li>
                 <li class="nav-item"><a href="{{ route('blogs') }}" class="nav-link">اخبار</a></li>
-                <li class="nav-item"><a href="{{ route('contact') }}" class="nav-link">تماس با ما</a></li>
+                <li class="nav-item"><a href="{{ route('contact') }}" class="nav-link">ارتباط با ما</a></li>
                 <li class="nav-item"><a href="insta.sarzaminmelk.com" class="nav-link">اینستا</a></li>
                 @if(\Illuminate\Support\Facades\Auth::check())
                     <li class="nav-item"><a href="{{ route('panel') }}" class="nav-link" style="color: green;font-size: 18px">پنل کاربری</a></li>
@@ -106,7 +118,7 @@
                         <li><a href="{{ route('about') }}">درباره ما</a></li>
                         <li><a href="{{ route('galleries') }}">گالری</a></li>
                         <li><a href="{{ route('blogs') }}">اخبار</a></li>
-                        <li><a href="{{ route('contact') }}">تماس با ما</a></li>
+                        <li><a href="{{ route('contact') }}">ارتباط با ما</a></li>
                         <li><a href="insta.sarzaminmelk.com">اینستا</a></li>
                     </ul>
                 </div>
