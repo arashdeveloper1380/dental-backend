@@ -47,6 +47,7 @@ use App\Http\Controllers\admin\NobatController;
     Route::middleware(['is_admin'])->group(function () {
 
         Route::get('/dashboard', function () {
+
             return view('layouts.admin_master');
         })->middleware(['auth', 'verified'])->name('dashboard');
 

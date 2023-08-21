@@ -24,26 +24,59 @@ class NobatController extends Controller
     }
 
     public function store(Request $request){
-        Nobat::create([
-            'date'      => $request->get('date'),
-            'time'      => [
-                'ساعت 9',
-                'ساعت 10',
-                'ساعت 11',
-                'ساعت 12',
-                'ساعت 13',
-                'ساعت 14',
-                'ساعت 15',
-                'ساعت 16',
-                'ساعت 17',
-                'ساعت 18',
-                'ساعت 19',
-                'ساعت 20',
-            ],
-            'user_id'   => Auth::user()->id,
-        ]);
+        $date = date('Y/m/d'); // تاریخ امروز
+        $start_time = strtotime('9:00 AM'); // ساعت شروع
+        $end_time = strtotime('8:00 PM'); // ساعت پایان
+        $time_slots = [];
 
-        return redirect()->route('nobat.index')->with('success','وقت نوبت با موفقیت ثبت شد...');
+        for ($i = 0; $i < 7; $i++) { // حلقه برای 7 روز در هفته
+            $current_date = date('Y/m/d', strtotime("+$i days")); // تاریخ هر روز
+            $current_date = verta($current_date)->format('Y/m/d');
+
+            // اگر هفته قبلی به پایان رسیده است، هفته جدید را بسازید
+            if ($current_date > $date) {
+                $date = $current_date;
+                $start_time = strtotime('9:00 AM');
+                $end_time = strtotime('8:00 PM');
+            }
+
+            $current_time = $start_time;
+
+            while ($current_time <= $end_time) { // حلقه برای ساعت های مورد نظر
+                $time_slot = date('H:i', $current_time); // تبدیل ساعت به فرمت مناسب
+                array_push($time_slots, $time_slot);
+                $current_time += 3600; // اضافه کردن یک ساعت به ساعت فعلی
+            }
+            if(Nobat::query()->count() == 7){
+                return redirect()->route('nobat.index')->with('error','هفته قبلی تموم نشده !!!');
+            }else{
+                Nobat::create([
+                    'date' => $current_date,
+                    'time' => $time_slots,
+                    'user_id' => Auth::user()->id,
+                ]);
+            }
+        }
+//        Nobat::create([
+//            'date'      => $request->get('date'),
+//            'time'      => [
+//                'ساعت 9',
+//                'ساعت 10',
+//                'ساعت 11',
+//                'ساعت 12',
+//                'ساعت 13',
+//                'ساعت 14',
+//                'ساعت 15',
+//                'ساعت 16',
+//                'ساعت 17',
+//                'ساعت 18',
+//                'ساعت 19',
+//                'ساعت 20',
+//            ],
+//            'user_id'   => Auth::user()->id,
+//        ]);
+//
+//        return redirect()->route('nobat.index')->with('success','وقت نوبت با موفقیت ثبت شد...');
     }
 
     public function destroy($id){

@@ -4,6 +4,7 @@
     <h3>لیست وقت ها</h3><br>
     <a href="{{ route('nobat.create') }}" class="btn btn-success pull-left">ثبت وقت ها</a>
     @if(session()->has('success')) <div class="alert alert-success">{{ session()->get('success') }}</div> @endif
+    @if(session()->has('error')) <div class="alert alert-danger">{{ session()->get('error') }}</div> @endif
     <table class="table">
         <thead>
             <tr>

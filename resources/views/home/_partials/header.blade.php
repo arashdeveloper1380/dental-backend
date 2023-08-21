@@ -25,13 +25,49 @@
     <link rel="stylesheet" href="{{ asset('front/css/before-after.min.css') }}">
     @yield('header')
     <style>
-        .info-header-logo{
-            border: 1px solid #ccc;
-            border-radius: 20px;
-            width: 200px;
+        .tooth-chart{
+            width:305px;
             margin: 0 auto;
-            color: #fff;
         }
+        #Spots polygon, #Spots path {
+            -webkit-transition: fill .25s;
+            transition: fill .25s;
+        }
+        #Spots polygon:hover, #Spots polygon:active, #Spots path:hover, #Spots path:active {
+            fill: cyan !important;
+        }
+        .media.block-6.d-block.text-center{
+            box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+            border-radius: 20px;
+            height: 100%;
+        }
+        .media.block-6.d-block.text-center:hover {
+            background-color: #74c9c0;
+            transition: all 0.3s ease;
+            padding:5px;
+        }
+        .col-md-3.d-flex.services.align-self-stretch.p-4.ftco-animate.fadeInUp.ftco-animated {
+            height: 285px;
+        }
+        .media.block-6.d-block.text-center:hover {
+            background-color: #74c9c0;
+            transition: all 0.3s ease;
+            padding:5px;
+            cursor: pointer;
+        }
+        .col-md-3.d-flex.services.align-self-stretch.p-4.ftco-animate.fadeInUp.ftco-animated {
+            height: 285px;
+        }
+        .col-md-6.col-lg-3.ftco-animate.fadeInUp.ftco-animated{
+            border-radius: 20px;
+            padding: 10px;
+            box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px;
+        }
+        .img.align-self-stretch {
+            border-top-right-radius: 20px;
+            border-top-left-radius: 20px;
+        }
+
     </style>
 </head>
 <body>
