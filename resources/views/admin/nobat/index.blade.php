@@ -2,9 +2,17 @@
 
 @section('content')
     <h3>لیست وقت ها</h3><br>
-    <a href="{{ route('nobat.create') }}" class="btn btn-success pull-left">ثبت وقت ها</a>
+    @if(\App\Models\Nobat::query()->count() == 0)
+        <form action="{{ route('nobat.store') }}" method="post">
+            @csrf
+            <input type="submit" value="ثبت وقت" class="btn btn-success">
+        </form>
+{{--        <a href="{{ route('nobat.create') }}" class="btn btn-success pull-left">ثبت وقت ها</a>--}}
+    @endif
+
     @if(session()->has('success')) <div class="alert alert-success">{{ session()->get('success') }}</div> @endif
     @if(session()->has('error')) <div class="alert alert-danger">{{ session()->get('error') }}</div> @endif
+    <div class="alert alert-success">بعد از تمام شدن هفته دکمه ثبت وقت باز میشود</div>
     <table class="table">
         <thead>
             <tr>

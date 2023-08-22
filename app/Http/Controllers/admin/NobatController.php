@@ -47,15 +47,23 @@ class NobatController extends Controller
                 array_push($time_slots, $time_slot);
                 $current_time += 3600; // اضافه کردن یک ساعت به ساعت فعلی
             }
-            if(Nobat::query()->count() == 7){
-                return redirect()->route('nobat.index')->with('error','هفته قبلی تموم نشده !!!');
-            }else{
+            $end_date = Nobat::query()->orderByDesc('date')->first();
+
+            if($end_date == null){
                 Nobat::create([
                     'date' => $current_date,
                     'time' => $time_slots,
                     'user_id' => Auth::user()->id,
                 ]);
+            }else if($current_date < $end_date && Nobat::query()->count() == 7){
+                return redirect()->route('nobat.index')->with('error','بعد از تمام شدن هفته دکمه ثبت وقت باز میشود ');
             }
+            Nobat::create([
+                'date' => $current_date,
+                'time' => $time_slots,
+                'user_id' => Auth::user()->id,
+            ]);
+
         }
 //        Nobat::create([
 //            'date'      => $request->get('date'),
