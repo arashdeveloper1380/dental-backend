@@ -68,7 +68,6 @@ class FrontController extends Controller
             if($nobatgiri != null){
                 $timeSelected = $nobatgiri->nobat_id[1];
                 
-                
                 $nobat = Nobat::query()->select('time')->first()->time;
 
                 if(in_array($timeSelected, $nobat)){
@@ -83,9 +82,6 @@ class FrontController extends Controller
                 DB::table('nobats')->where('date', $nobatgiri->nobat_id[0])->update([
                     'time' => $arrNoabt
                 ]);
-                // Nobat::query()->where('date', $nobatgiri->nobat_id[0])->update([
-                //     'time' => $arrNoabt
-                // ]);
             }
 
             $time = [];

@@ -101,15 +101,14 @@ class NobatController extends Controller
 
     public function store(Request $request)
     {
-        $date = date('Y/m/d'); // تاریخ امروز
-        $start_time = strtotime('9:00 AM'); // ساعت شروع
-        $end_time = strtotime('8:00 PM'); // ساعت پایان
+        $date = date('Y/m/d');
+        $start_time = strtotime('9:00 AM');
+        $end_time = strtotime('8:00 PM');
 
-        for ($i = 0; $i < 7; $i++) { // حلقه برای 7 روز در هفته
-            $current_date = date('Y/m/d', strtotime("+$i days")); // تاریخ هر روز
+        for ($i = 0; $i < 7; $i++) {
+            $current_date = date('Y/m/d', strtotime("+$i days"));
             $current_date = verta($current_date)->format('Y/m/d');
 
-            // اگر هفته قبلی به پایان رسیده است، هفته جدید را بسازید
             if ($current_date > $date) {
                 $date = $current_date;
                 $start_time = strtotime('9:00 AM');
@@ -119,10 +118,10 @@ class NobatController extends Controller
             $current_time = $start_time;
             $time_slots = [];
 
-            while ($current_time <= $end_time) { // حلقه برای ساعت های مورد نظر
-                $time_slot = date('H:i', $current_time); // تبدیل ساعت به فرمت مناسب
+            while ($current_time <= $end_time) {
+                $time_slot = date('H:i', $current_time);
 
-                // بررسی تکراری نبودن ساعت
+                
                 $existing_nobat = Nobat::where('date', $current_date)
                     ->whereJsonContains('time', $time_slot)
                     ->first();
@@ -131,7 +130,7 @@ class NobatController extends Controller
                     array_push($time_slots, $time_slot);
                 }
 
-                $current_time += 3600; // اضافه کردن یک ساعت به ساعت فعلی
+                $current_time += 3600;
             }
 
             $end_date = Nobat::query()->orderByDesc('date')->first();
