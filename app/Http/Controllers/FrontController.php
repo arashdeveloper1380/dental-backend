@@ -13,6 +13,7 @@ use App\Models\Slider;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
 
 class FrontController extends Controller
@@ -66,18 +67,25 @@ class FrontController extends Controller
             $nobatgiri = nobatGiri::query()->where(['mobile' => Auth::user()->email])->first();
             if($nobatgiri != null){
                 $timeSelected = $nobatgiri->nobat_id[1];
+                
+                
                 $nobat = Nobat::query()->select('time')->first()->time;
 
                 if(in_array($timeSelected, $nobat)){
                     unset($nobat[array_search($timeSelected,$nobat)]);
                 }
+
                 $arrNoabt = [];
                 foreach ($nobat as $value){
                     $arrNoabt[] = $value;
                 }
-                Nobat::query()->update([
+                
+                DB::table('nobats')->where('date', $nobatgiri->nobat_id[0])->update([
                     'time' => $arrNoabt
                 ]);
+                // Nobat::query()->where('date', $nobatgiri->nobat_id[0])->update([
+                //     'time' => $arrNoabt
+                // ]);
             }
 
             $time = [];
@@ -95,6 +103,7 @@ class FrontController extends Controller
     }
 
     public function nobatgiri(Request $request){
+
         nobatGiri::create([
             'username'  => $request->get('username'),
             'mobile'    => $request->get('mobile'),
